@@ -1,0 +1,24 @@
+Line,Station,Area,SubArea,Rack,Column,DisplayOrder
+1,1,Line 1,Station 01,,,1
+1,1,Line 1,Station 01,R1,A,1
+1,1,Line 1,Station 01,R1,B,1
+1,1,Line 1,Station 01,R2,A,1
+1,2,Line 1,Station 02,,,2
+1,2,Line 1,Station 02,R1,A,2
+1,2,Line 1,Station 02,R1,B,2
+1,2,Line 1,Station 02,R2,A,2
+1,5,Line 1,Station 05,,,5
+1,5,Line 1,Station 05,R1,A,5
+1,5,Line 1,Station 05,R1,B,5
+1,6,Line 1,Station 06,,,6
+1,6,Line 1,Station 06,R1,A,6
+1,7,Line 1,Station 07,,,7
+1,7,Line 1,Station 07,R1,A,7
+1,8,Line 1,Station 08,,,8
+1,8,Line 1,Station 08,R1,A,8
+1,9,Line 1,Station 09,,,9
+1,9,Line 1,Station 09,R1,A,9
+1,11,Line 1,Station 11,,,11
+1,11,Line 1,Station 11,R1,A,11
+1,12,Line 1,Station 12,,,12
+1,12,Line 1,Station 12,R1,A,12

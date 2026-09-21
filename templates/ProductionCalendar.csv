@@ -1,0 +1,8 @@
+RecordType,DayOfWeek,ExceptionDate,Area,Working,StartTime,EndTime,Break1Start,Break1End,Break2Start,Break2End,Reason,Owner,UpdatedAt
+Weekly,Monday,,All Areas,Yes,07:00,16:30,09:55,10:15,12:55,13:30,Standard production day,Production Control,21/09/2026 09:00
+Weekly,Tuesday,,All Areas,Yes,07:00,16:30,09:55,10:15,12:55,13:30,Standard production day,Production Control,21/09/2026 09:00
+Weekly,Wednesday,,All Areas,Yes,07:00,16:30,09:55,10:15,12:55,13:30,Standard production day,Production Control,21/09/2026 09:00
+Weekly,Thursday,,All Areas,Yes,07:00,16:30,09:55,10:15,12:55,13:30,Standard production day,Production Control,21/09/2026 09:00
+Weekly,Friday,,All Areas,No,07:00,16:30,09:55,10:15,12:55,13:30,Non-production day,Production Control,21/09/2026 09:00
+Weekly,Saturday,,All Areas,No,07:00,16:30,09:55,10:15,12:55,13:30,Non-production day,Production Control,21/09/2026 09:00
+Weekly,Sunday,,All Areas,No,07:00,16:30,09:55,10:15,12:55,13:30,Non-production day,Production Control,21/09/2026 09:00

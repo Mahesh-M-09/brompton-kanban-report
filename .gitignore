@@ -3,4 +3,4 @@
 *.tsv
 *.xlsx
 *.xls
-
+!templates/*.csv

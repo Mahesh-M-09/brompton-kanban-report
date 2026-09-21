@@ -85,6 +85,9 @@ header.brom-header{
 .source-dot{width:8px;height:8px;border-radius:50%;background:#ccc;}
 .source-dot.ok{background:var(--brom-green);}
 .connected-data-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:linear-gradient(120deg,#14271e,#075f34);color:#fff;border-radius:12px;padding:13px 15px;margin-bottom:12px;box-shadow:0 8px 22px rgba(18,48,32,.16)}.connected-data-icon{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:17px}.connected-data-copy{min-width:230px;flex:1}.connected-data-copy strong{display:block;font-size:12px}.connected-data-copy span{display:block;color:#bdd4c7;font-size:10px;margin-top:2px}.connected-data-bar .brom-btn{min-height:33px}.connected-data-bar .brom-btn.outline{background:rgba(255,255,255,.95)}.auto-refresh-field{display:flex;align-items:center;gap:6px;color:#c9ddd1;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.auto-refresh-field select{height:33px;border:0;border-radius:8px;padding:0 8px;background:#fff;color:#173226}.connection-light{width:8px;height:8px;border-radius:50%;background:#92a39a;display:inline-block;margin-right:5px}.connection-light.live{background:#59df90;box-shadow:0 0 0 4px rgba(89,223,144,.13)}.connection-light.wait{background:#e4b34d}
+.tv-clock{display:none;text-align:right}.tv-clock strong{display:block;font-size:28px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.02em}.tv-clock span{display:block;margin-top:4px;color:#bcd2c5;font-size:10px}.tv-mode .tv-clock{display:block}.tv-mode .live-badge{display:none}.tv-mode .toolbar{display:none}.tv-mode .connected-data-bar{padding:8px 12px;margin-bottom:10px}.tv-mode .connected-data-bar .brom-btn,.tv-mode .connected-data-bar .auto-refresh-field{display:none}.tv-mode header.brom-header{padding:12px 24px;position:sticky;top:0;z-index:100}.tv-mode .tab-bar{padding:0 24px}.tv-mode .tab-btn:not(.active){display:none}.tv-mode .wrap{padding:16px 22px 42px;max-width:none}.tv-mode .source-strip,.tv-mode .drop-hint{display:none}.tv-mode .kpi-grid{margin-bottom:14px}.tv-mode .kpi{padding:14px 17px}.tv-mode .kpi .num{font-size:34px}.tv-mode .request-details{display:none}.tv-exit-hint{display:none}.tv-mode .tv-exit-hint{display:inline;color:#bcd2c5;font-size:9px;margin-left:10px}
+.area-tree{margin-top:10px;border-top:1px solid #e6ece8;padding-top:8px}.area-tree>details{border:1px solid #e2eae4;border-radius:9px;margin:6px 0;background:#fbfcfb;overflow:hidden}.area-tree summary{cursor:pointer;list-style:none;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:800;color:#294638}.area-tree summary::-webkit-details-marker{display:none}.area-tree summary:after{content:'+';width:18px;height:18px;border-radius:6px;background:#e7f2eb;display:grid;place-items:center;color:#08713b}.area-tree details[open]>summary:after{content:'−'}.area-tree-body{padding:0 10px 9px}.rack-detail{border-top:1px solid #edf1ee}.rack-detail:first-child{border-top:0}.rack-detail>summary{padding:6px 2px;font-size:9.5px}.rack-detail>summary:after{width:16px;height:16px;border-radius:5px}.rack-columns{display:flex;gap:5px;flex-wrap:wrap;padding:1px 2px 7px}.rack-columns span{background:#edf4ef;border:1px solid #dce9e0;border-radius:999px;padding:4px 7px;color:#466052;font-size:9px}.rack-count{font-weight:800;color:#08713b;margin-left:auto;margin-right:8px}
+.daily-handover{display:grid;gap:7px;margin:0 0 14px}.daily-handover-row{display:grid;grid-template-columns:95px 1fr 74px;gap:10px;align-items:center;font-size:10px}.daily-handover-date{font-weight:800;color:#294638}.daily-handover-track{height:12px;border-radius:999px;background:#edf2ee;overflow:hidden}.daily-handover-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2f9060,#d49a2f 65%,#b94b55)}.daily-handover-value{text-align:right;font-weight:850;color:#173c2b}
 
 .kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:22px;}
 .kpi{
@@ -300,7 +303,8 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
     <div class="brom-title" style="margin-top:8px;">Brompton Kanban Report</div>
     <div class="brom-sub">Daily stores performance · three-hour production protection · demand flow</div>
   </div>
-  <div class="live-badge">Working sample — connect your own export any time</div>
+  <div class="live-badge">Operational report · locally connected data</div>
+  <div class="tv-clock"><strong id="tvClock">--:--:--</strong><span id="tvDate">—</span><span>Last data refresh: <b id="tvLastRefresh">—</b></span><span class="tv-exit-hint">Press Esc to exit TV mode</span></div>
 </header>
 
 <div class="tab-bar">
@@ -320,6 +324,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
     <button class="brom-btn outline" id="btnDataConn">Data Connections</button>
     <button class="brom-btn outline" id="btnProdCal">Production Calendar</button>
     <button class="brom-btn outline" id="btnGuide">Guide</button>
+    <button class="brom-btn outline" id="btnTvMode">TV Full Screen</button>
     <button class="brom-btn green" id="btnOverallExport">Export Aging Report</button>
     <input type="text" id="searchBox" class="search-input" placeholder="Search Request / Item / Kanban…">
     <div class="spacer"></div>
@@ -333,7 +338,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
       <div class="connected-data-copy"><strong>Connected Kanban report</strong><span id="quickConnectionStatus"><i class="connection-light"></i>No persistent CSV connected</span></div>
       <button class="brom-btn outline" id="btnQuickConnect">Connect shared CSV</button>
       <button class="brom-btn outline" id="btnQuickRefresh" disabled>Refresh latest data</button>
-      <label class="auto-refresh-field">TV refresh<select id="autoRefreshSelect"><option value="0">Off</option><option value="2">Every 2 min</option><option value="5">Every 5 min</option><option value="10">Every 10 min</option></select></label>
+      <label class="auto-refresh-field">TV refresh<select id="autoRefreshSelect"><option value="0">Off</option><option value="2">Every 2 min</option><option value="5" selected>Every 5 min</option><option value="10">Every 10 min</option></select></label>
     </div>
 
     <div class="source-strip" id="sourceStrip"></div>
@@ -470,14 +475,15 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
     <div id="gapAnalysisPanel" style="display:none">
       <div class="cycle-kpis">
         <div class="cycle-kpi"><strong id="gapMatched">0</strong><span>Pick cycles reviewed</span></div>
-        <div class="cycle-kpi"><strong id="gapAvg">—</strong><span>Average working loss</span></div>
-        <div class="cycle-kpi"><strong id="gapMax">—</strong><span>Longest working loss</span></div>
-        <div class="cycle-kpi"><strong id="gapNoMatch">0</strong><span>Issue cycles</span></div>
+        <div class="cycle-kpi"><strong id="gapAvg">—</strong><span>Average handover time</span></div>
+        <div class="cycle-kpi"><strong id="gapMax">—</strong><span>Longest handover time</span></div>
+        <div class="cycle-kpi"><strong id="gapNoMatch">0</strong><span>Over 15 minutes</span></div>
       </div>
-      <div class="loss-legend"><b>Pick and delivery windows are paired by time—not by item or request.</b><span><i class="dot good"></i>Good ≤5 min / Parallel</span><span><i class="dot watch"></i>Watch &gt;5–15 min</span><span><i class="dot issue"></i>Issue &gt;15 min</span><span>Breaks excluded; BS Picks do not create a loss window.</span></div>
+      <div class="loss-legend"><b>Pick and delivery windows are paired by time—not by item or request.</b><span><i class="dot good"></i>On target ≤5 min</span><span><i class="dot watch"></i>Monitor &gt;5–15 min</span><span><i class="dot issue"></i>Attention &gt;15 min</span><span>Breaks excluded; BS Picks do not create a handover window.</span></div>
+      <div class="table-section-title">Daily handover overview</div><div class="daily-handover" id="gapDailySummary"></div>
       <div class="item-table-wrap">
-        <div class="table-section-title">Lost-time review · click any heading to sort</div>
-        <div class="gap-table-wrap"><table class="item-table gap-table"><thead><tr><th data-gap-sort="cycleLabel">Cycle <span class="arrow"></span></th><th data-gap-sort="dayKey">Date <span class="arrow"></span></th><th data-gap-sort="firstPick">First pick <span class="arrow"></span></th><th data-gap-sort="lastPick">Last pick <span class="arrow"></span></th><th data-gap-sort="firstDelivery">First delivery <span class="arrow"></span></th><th data-gap-sort="lastDelivery">Last delivery <span class="arrow"></span></th><th data-gap-sort="elapsedGap" data-tip="Elapsed minutes from the last pick window to the next delivery window, before removing breaks.">Calendar gap <span class="arrow"></span></th><th data-gap-sort="breakMinutes" data-tip="Minutes overlapping the 09:55–10:15 or 12:55–13:30 breaks.">Break excluded <span class="arrow"></span></th><th data-gap-sort="gap" data-tip="Calendar gap minus break minutes. This is the operational lost time to review.">Working loss <span class="arrow">▼</span></th><th data-gap-sort="statusRank" data-tip="Good: 5 minutes or less. Watch: over 5 up to 15 minutes. Issue: over 15 minutes.">Status <span class="arrow"></span></th><th data-gap-sort="picks" data-tip="All picks in the window, including BS Picks. A BS-only window is ignored because it is not a normal picking cycle.">Picks <span class="arrow"></span></th></tr></thead><tbody id="gapAnalysisBody"></tbody></table></div>
+        <div class="table-section-title">Cycle handover review · click any heading to sort</div>
+        <div class="gap-table-wrap"><table class="item-table gap-table"><thead><tr><th data-gap-sort="cycleLabel">Cycle <span class="arrow"></span></th><th data-gap-sort="dayKey">Date <span class="arrow"></span></th><th data-gap-sort="previousDelivery">Previous delivery <span class="arrow"></span></th><th data-gap-sort="firstPick">First pick <span class="arrow"></span></th><th data-gap-sort="lastPick">Last pick <span class="arrow"></span></th><th data-gap-sort="firstDelivery">First delivery <span class="arrow"></span></th><th data-gap-sort="lastDelivery">Last delivery <span class="arrow"></span></th><th data-gap-sort="beforePickGap" data-tip="Working minutes from the previous delivery window ending to this pick window starting. Breaks are excluded.">Delivery → pick <span class="arrow"></span></th><th data-gap-sort="afterPickGap" data-tip="Working minutes from this pick window ending to its delivery window starting. Breaks are excluded.">Pick → delivery <span class="arrow">▼</span></th><th data-gap-sort="statusRank">Status <span class="arrow"></span></th><th data-gap-sort="picks">Picks <span class="arrow"></span></th><th data-gap-sort="deliveries">Deliveries <span class="arrow"></span></th></tr></thead><tbody id="gapAnalysisBody"></tbody></table></div>
       </div>
     </div>
 
@@ -608,7 +614,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
   <div class="modal" style="width:760px;">
     <div class="modal-head"><h2>Production Calendar</h2><button class="modal-close" data-close="modalProdCal">×</button></div>
     <div class="modal-body">
-      <p class="hint">Every Area follows the default schedule below unless a specific exception is logged for a specific date.</p>
+      <p class="hint">The connected Production Calendar CSV holds the weekly schedule and dated exceptions. GitHub contains only the dashboard; the browser reads and saves the locally synchronised calendar file.</p>
       <div class="section-title">Default weekly schedule (all Areas)</div>
       <table class="cal-default-table">
         <tr><th>Day</th><th>Working</th><th>Hours</th></tr>
@@ -635,11 +641,12 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
           <option value="No">No — closed this date</option>
         </select>
       </div>
+      <div class="form-row"><label>Reason / production note</label><input type="text" id="excReason" placeholder="Example: Friday production shift or planned shutdown"></div>
       <button class="brom-btn green" id="btnAddException">Add Log Entry</button>
       <div class="section-divider">
         <div class="section-title">Exception log history</div>
         <table class="exception-log-table" id="exceptionLogTable">
-          <thead><tr><th>Date</th><th>Area</th><th>Working</th><th>Logged by</th><th>Logged at</th><th></th></tr></thead>
+          <thead><tr><th>Date</th><th>Area</th><th>Working</th><th>Reason</th><th>Logged by</th><th>Logged at</th><th></th></tr></thead>
           <tbody id="exceptionLogBody"></tbody>
         </table>
       </div>
@@ -656,17 +663,17 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
   <div class="modal" style="width:760px;">
     <div class="modal-head"><h2>About This Report</h2><button class="modal-close" data-close="modalGuide">×</button></div>
     <div class="modal-body guide-body">
-      <div class="warn-strip">This is a working proof of concept, built to try out the idea before deciding on next steps.</div>
+      <div class="warn-strip">Operational browser report. Transaction data stays in the connected local or SharePoint-synchronised files and is not stored in GitHub.</div>
       <h3>What it does</h3>
       <ul>
-        <li>Groups Kanban requests into Areas (based on your Area Config) and flags anything open more than 1.5 or 3 working hours.</li>
+        <li>Groups Kanban requests into Area, Sub-area, Rack and Column levels from the connected Area Config.</li>
         <li>Aging uses a working-hours calendar that matches the real shift pattern — Monday to Thursday by default, with Friday handled per Area via a logged exception.</li>
         <li>Lets you export a pick list with scannable QR or Code128 barcodes straight from any Area.</li>
         <li>Trends and Item Analysis show demand flow and whether Stores protected production inside the three-working-hour replenishment window.</li>
       </ul>
       <h3>Day to day use</h3>
       <ul>
-        <li>Connect your Kanban export, Area Config and Production Calendar files via Data Connections — nothing is hard-coded.</li>
+        <li>Connect the Kanban export, Area Config and Production Calendar once in Chrome or Edge. Use silent refresh or the five-minute TV refresh for updated files.</li>
         <li>Area grouping is controlled entirely by the Area Config file — edit it in Excel and re-connect to regroup instantly.</li>
         <li>Production Calendar exceptions are logged with who and when, so a one-off Friday shift never silently changes any other date.</li>
         <li>On the Trends page, click any bar to see that period's figures and a full item breakdown below it, the same way the Item Analysis page works.</li>
@@ -1284,14 +1291,15 @@ const AppEngine = (function(){
   }
 
   // ---------- Calendar (working hours + per-area exceptions) ----------
-  function isAreaWorkingOnDate(area, date, exceptions){
-    const dow = date.getDay();
-    const key = toDateStr(date) + '|' + area;
-    if(exceptions.has(key)) return exceptions.get(key);
-    if(dow===0 || dow===6) return false;
-    if(dow===5) return false;
-    return true;
+  function calendarScheduleForDate(area,date,exceptions){
+    const dow=date.getDay(),dateKey=toDateStr(date),keys=[dateKey+'|'+area,dateKey+'|All Areas',`WEEKLY|${dow}|${area}`,`WEEKLY|${dow}|All Areas`];
+    for(const key of keys){if(exceptions.has(key)){const value=exceptions.get(key);return typeof value==='boolean'?{working:value,start:'07:00',end:'16:30',breaks:[['09:55','10:15'],['12:55','13:30']]}:value;}}
+    return {working:dow>=1&&dow<=4,start:'07:00',end:'16:30',breaks:[['09:55','10:15'],['12:55','13:30']]};
   }
+  function isAreaWorkingOnDate(area, date, exceptions){
+    return calendarScheduleForDate(area,date,exceptions).working;
+  }
+  function clockOnDate(date,value,fallback){const m=/^(\d{1,2}):(\d{2})$/.exec(String(value||fallback));const d=new Date(date);d.setHours(Number(m?.[1]||0),Number(m?.[2]||0),0,0);return d;}
   function businessMinutesBetweenForArea(start, end, area, exceptions){
     if(!(start instanceof Date) || !(end instanceof Date)) return 0;
     if(end <= start) return 0;
@@ -1300,18 +1308,14 @@ const AppEngine = (function(){
     let guard=0;
     while(cursor < end && guard<400){
       guard++;
-      const dayStart = new Date(cursor); dayStart.setHours(WORK_START_H,WORK_START_M,0,0);
-      const dayEnd = new Date(cursor); dayEnd.setHours(WORK_END_H,WORK_END_M,0,0);
-      if(isAreaWorkingOnDate(area, cursor, exceptions)){
+      const schedule=calendarScheduleForDate(area,cursor,exceptions),dayStart=clockOnDate(cursor,schedule.start,'07:00'),dayEnd=clockOnDate(cursor,schedule.end,'16:30');
+      if(schedule.working){
         const segStart = cursor>dayStart?cursor:dayStart;
         const segEnd = end<dayEnd?end:dayEnd;
-        // Site schedule: exclude 09:55–10:15 and 12:55–13:30 breaks.
-        const breaks=[[9,55,10,15],[12,55,13,30]];
         if(segEnd>segStart){
           total += (segEnd-segStart)/60000;
-          breaks.forEach(b=>{
-            const bs=new Date(cursor); bs.setHours(b[0],b[1],0,0);
-            const be=new Date(cursor); be.setHours(b[2],b[3],0,0);
+          (schedule.breaks||[]).forEach(b=>{
+            const bs=clockOnDate(cursor,b[0],'09:55'),be=clockOnDate(cursor,b[1],'10:15');
             const os=segStart>bs?segStart:bs, oe=segEnd<be?segEnd:be;
             if(oe>os) total-=(oe-os)/60000;
           });
@@ -1319,7 +1323,7 @@ const AppEngine = (function(){
       }
       const next = new Date(cursor);
       next.setDate(next.getDate()+1);
-      next.setHours(WORK_START_H,WORK_START_M,0,0);
+      next.setHours(0,0,0,0);
       cursor = next;
     }
     return total;
@@ -1341,22 +1345,26 @@ const AppEngine = (function(){
     areaConfigRows.forEach(r=>{
       const line = String(r.Line).trim();
       const station = String(r.Station).trim().padStart(2,'0');
-      map.set(line+'-'+station, r.Area.trim());
+      if(!line||!station)return;const row={area:String(r.Area||`Line ${line}`).trim(),subArea:String(r.SubArea||`Station ${station}`).trim(),rack:String(r.Rack||'').trim().toUpperCase(),column:String(r.Column||'').trim().toUpperCase(),displayOrder:Number(r.DisplayOrder)||999};
+      const stationKey=line+'-'+station;if(!map.has(stationKey)||(!row.rack&&!row.column))map.set(stationKey,row);
+      if(row.rack||row.column)map.set(`${stationKey}|${row.rack}|${row.column}`,row);
     });
     return map;
   }
-  function resolveAreaForRecord(rec, areaMap){
-    if(rec.line===null || rec.station===null) return `Unmapped · ${rec.loc || 'No location'}`;
-    const key = rec.line + '-' + String(rec.station).padStart(2,'0');
-    if(areaMap && areaMap.has(key)) return areaMap.get(key);
-    return `Line ${rec.line} – Station ${String(rec.station).padStart(2,'0')}`;
+  function resolveHierarchyForRecord(rec,areaMap){
+    if(rec.line===null||rec.station===null)return {area:'Unmapped',subArea:rec.loc||'No location',rack:'',column:'',displayOrder:999};
+    const stationKey=rec.line+'-'+String(rec.station).padStart(2,'0'),exactKey=`${stationKey}|${rec.rack||''}|${rec.column||''}`,exact=areaMap&&areaMap.get(exactKey),station=areaMap&&areaMap.get(stationKey),row=exact||station;
+    return {area:row?.area||`Line ${rec.line}`,subArea:row?.subArea||`Station ${String(rec.station).padStart(2,'0')}`,rack:exact?.rack||rec.rack||rec.slot||'General',column:exact?.column||rec.column||'',displayOrder:row?.displayOrder||999};
   }
-  const LOC_RE = /ASL-L(\d+)-ST(\d+)/i;
+  function resolveAreaForRecord(rec, areaMap){
+    return resolveHierarchyForRecord(rec,areaMap).area;
+  }
+  const LOC_RE = /ASL-L(\d+)-ST(\d+)(?:-([A-Z0-9]+))?/i;
   function parseLocation(loc){
-    if(!loc) return {line:null, station:null};
+    if(!loc) return {line:null,station:null,rack:'',column:'',slot:''};
     const m = LOC_RE.exec(loc);
-    if(m) return {line:parseInt(m[1],10), station:parseInt(m[2],10)};
-    return {line:null, station:null};
+    if(m){const slot=String(m[3]||'').toUpperCase(),rackMatch=/^R(\d+)([A-Z]+)?$/.exec(slot);return {line:parseInt(m[1],10),station:parseInt(m[2],10),rack:rackMatch?`R${rackMatch[1]}`:slot,column:rackMatch?(rackMatch[2]||''):'',slot};}
+    return {line:null,station:null,rack:'',column:'',slot:''};
   }
 
   // ---------- Normalize raw CSV rows into records ----------
@@ -1370,7 +1378,7 @@ const AppEngine = (function(){
     const records = [];
     rawRows.forEach(r=>{
       const loc = r['Kanban Location'];
-      const {line, station} = parseLocation(loc);
+      const {line,station,rack,column,slot}=parseLocation(loc);
       records.push({
         req: r['Request'],
         kanban: r['Kanban'],
@@ -1379,7 +1387,7 @@ const AppEngine = (function(){
         status: r['Status'],
         qty: cleanNumber(r['Kanban Qty']),
         loc: loc,
-        line, station,
+        line,station,rack,column,slot,
         reqDate: parseInforDate(r['Requested Date']),
         reqBy: r['Requested By'] || '',
         pickDate: parseInforDate(r['Pick Date']),
@@ -1443,14 +1451,18 @@ const AppEngine = (function(){
   function buildExceptionsMap(calendarRows){
     const map = new Map();
     const list = [];
-    calendarRows.forEach(r=>{
-      const d = r.ExceptionDate;
+    const dayNumber={sunday:0,monday:1,tuesday:2,wednesday:3,thursday:4,friday:5,saturday:6};
+    calendarRows.forEach((r,rowIndex)=>{
+      const type=String(r.RecordType||'Exception').trim().toLowerCase(),area=String(r.Area||'All Areas').trim()||'All Areas',working=String(r.Working).trim().toLowerCase()==='yes',schedule={working,start:String(r.StartTime||'07:00').trim(),end:String(r.EndTime||'16:30').trim(),breaks:[[String(r.Break1Start||'09:55').trim(),String(r.Break1End||'10:15').trim()],[String(r.Break2Start||'12:55').trim(),String(r.Break2End||'13:30').trim()]]};
+      if(type==='weekly'){
+        const dow=dayNumber[String(r.DayOfWeek||'').trim().toLowerCase()];if(dow===undefined)return;map.set(`WEEKLY|${dow}|${area}`,schedule);return;
+      }
+      const d=r.ExceptionDate||r.Date;
       const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec((d||'').trim());
       if(!m) return;
       const iso = `${m[3]}-${m[2]}-${m[1]}`;
-      const working = String(r.Working).trim().toLowerCase()==='yes';
-      map.set(iso+'|'+r.Area.trim(), working);
-      list.push({ date: d, area:r.Area, working: r.Working, loggedBy:r.LoggedBy||'', loggedAt:r.LoggedAt||'' });
+      map.set(iso+'|'+area,schedule);
+      list.push({date:d,area,working:r.Working,reason:r.Reason||'',loggedBy:r.LoggedBy||r.Owner||'',loggedAt:r.LoggedAt||r.UpdatedAt||'',rowIndex});
     });
     return {map, list};
   }
@@ -1612,7 +1624,7 @@ const AppEngine = (function(){
 
   return {
     toDateStr, isAreaWorkingOnDate, businessMinutesBetweenForArea,
-    fmtAge, ageLevel, buildAreaMap, resolveAreaForRecord, parseLocation,
+    fmtAge, ageLevel, buildAreaMap, resolveAreaForRecord, resolveHierarchyForRecord, parseLocation,
     parseInforDate, normalizeRecords, computeAgeMinutes, buildDisplayGroups,
     computeKPIs, buildExceptionsMap, buildPeriodTrend, recordsInPeriod,
     periodRange, periodLabelFor, buildItemAnalysis,
@@ -1650,13 +1662,14 @@ const state = {
   currentTrendData: [],
   cycleData: [],
   gapData: [],
-  gapSort: { key:'gap', dir:-1 },
+  gapSort: { key:'afterPickGap', dir:-1 },
   selectedCycleIndex: 0,
   cyclePickIndex: 0,
   cycleTimer: null,
   autoRefreshTimer: null,
   autoRefreshMinutes: 0,
   connectionMessage: '',
+  lastDataRefresh: null,
 };
 function todayStr(){ return new Date().toISOString().slice(0,10); }
 state.viewDateStr = todayStr();
@@ -1733,6 +1746,7 @@ function useInputFallback(kind, acceptStr, onText){
     state.names[kind] = name;
     if(kind==='kanban')state.connectionMessage=`${name} · loaded for this session`;
     onText(text);
+    if(kind==='kanban')state.lastDataRefresh=new Date();
     renderSourceStrip();
     renderAll();
   });
@@ -1747,6 +1761,7 @@ async function connectFile(kind, acceptTypes, acceptStr, onText){
       try{await PersistentHandles.set(kind,handle);}catch(storeError){console.warn('Could not remember file handle',storeError);}
       if(kind==='kanban')state.connectionMessage=`${name} · connected and remembered`;
       onText(text);
+      if(kind==='kanban')state.lastDataRefresh=new Date();
       renderSourceStrip();
       renderAll();
     }catch(e){
@@ -1798,11 +1813,11 @@ async function refreshConnectedFiles(requestPermission=false,silent=false){
         } else if(kind==='prodCal'){
           const {rows}=CSVEngine.parseDelimitedText(text);state.calendarRows=rows;const {map}=AppEngine.buildExceptionsMap(rows);state.exceptions=map;renderExceptionLog();
         }
-        refreshed++;
-      }catch(error){console.error(error);if(kind==='kanban')state.connectionMessage=`Could not refresh ${state.names.kanban||'CSV'} · reconnect the file`;if(!silent)alert(`Could not refresh ${state.names[kind]||kind}. Reconnect the file if it was moved or renamed.`);}
+        refreshed++;if(kind==='kanban')state.lastDataRefresh=new Date();
+      }catch(error){console.error(error);if(kind==='kanban')state.connectionMessage=`Could not refresh ${state.names.kanban||'CSV'} · reconnect the file`;}
     }
   }
-  renderSourceStrip();renderAll();document.getElementById('lastRefresh').textContent=new Date().toLocaleTimeString('en-GB');return refreshed;
+  renderSourceStrip();renderAll();return refreshed;
 }
 document.getElementById('btnRefreshAll').addEventListener('click',async()=>{
   await refreshConnectedFiles(true,false);
@@ -1815,18 +1830,22 @@ function configureAutoRefresh(minutes){
 }
 document.getElementById('autoRefreshSelect').addEventListener('change',e=>configureAutoRefresh(Number(e.target.value)||0));
 async function restorePersistentConnections(){
-  if(!CSVEngine.supportsFSAccess)return;
+  const storedAuto=localStorage.getItem('bromptonAutoRefreshMinutes'),savedMinutes=storedAuto===null?5:(Number(storedAuto)||0);document.getElementById('autoRefreshSelect').value=String(savedMinutes);configureAutoRefresh(savedMinutes);
+  if(!CSVEngine.supportsFSAccess){renderSourceStrip();return;}
   for(const kind of ['kanban','areaConfig','prodCal']){
     try{const handle=await PersistentHandles.get(kind);if(handle){state.handles[kind]=handle;state.names[kind]=handle.name;}}
     catch(error){console.warn('Could not restore saved file handle',error);}
   }
-  const savedMinutes=Number(localStorage.getItem('bromptonAutoRefreshMinutes'))||0;document.getElementById('autoRefreshSelect').value=String(savedMinutes);configureAutoRefresh(savedMinutes);
   if(state.handles.kanban)state.connectionMessage=`${state.names.kanban} · remembered; checking permission…`;
   renderSourceStrip();await refreshConnectedFiles(false,true);
 }
 
 document.getElementById('btnDataConn').addEventListener('click', ()=> openModal('modalDataConn'));
 document.getElementById('btnGuide').addEventListener('click', ()=> openModal('modalGuide'));
+function updateTvClock(){const now=new Date();document.getElementById('tvClock').textContent=now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'});document.getElementById('tvDate').textContent=now.toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});const refreshed=state.lastDataRefresh?state.lastDataRefresh.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}):'Not loaded';document.getElementById('tvLastRefresh').textContent=refreshed;}
+setInterval(updateTvClock,1000);updateTvClock();
+document.getElementById('btnTvMode').addEventListener('click',async()=>{document.body.classList.add('tv-mode');try{if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();}catch(error){console.warn('Full screen unavailable',error);}updateTvClock();});
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)document.body.classList.remove('tv-mode');});
 
 // ---------------- Production Calendar modal ----------------
 function currentAreaNames(){
@@ -1850,21 +1869,20 @@ function renderExceptionLog(){
   const tbody = document.getElementById('exceptionLogBody');
   const {list} = AppEngine.buildExceptionsMap(state.calendarRows);
   if(list.length===0){
-    tbody.innerHTML = '<tr><td colspan="6" class="empty-msg">No exceptions logged yet — all Areas follow the default Mon–Thu schedule.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">No dated exceptions. The connected weekly schedule remains active.</td></tr>';
     return;
   }
   tbody.innerHTML = list.map((e, idx)=>{
     const cls = String(e.working).toLowerCase()==='yes' ? 'working-yes' : 'working-no';
     return `<tr class="${cls}">
-      <td>${e.date}</td><td>${e.area}</td><td class="wcol">${e.working}</td>
+      <td>${e.date}</td><td>${e.area}</td><td class="wcol">${e.working}</td><td>${cycleHtml(e.reason||'—')}</td>
       <td>${e.loggedBy}</td><td>${e.loggedAt}</td>
-      <td><button class="brom-btn small outline" style="padding:3px 8px;" data-remove-exc="${idx}">Remove</button></td>
+      <td><button class="brom-btn small outline" style="padding:3px 8px;" data-remove-exc="${e.rowIndex}">Remove</button></td>
     </tr>`;
   }).join('');
   tbody.querySelectorAll('[data-remove-exc]').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      const idx = parseInt(btn.dataset.removeExc, 10);
-      state.calendarRows.splice(idx, 1);
+      const idx=parseInt(btn.dataset.removeExc,10);state.calendarRows.splice(idx,1);
       const {map} = AppEngine.buildExceptionsMap(state.calendarRows);
       state.exceptions = map;
       renderExceptionLog();
@@ -1884,22 +1902,24 @@ document.getElementById('btnAddException').addEventListener('click', ()=>{
   const checked = Array.from(document.querySelectorAll('#areaCheckboxList input:checked')).map(cb=>cb.value);
   if(checked.length===0){ alert('Please select at least one Area.'); return; }
   const workingVal = document.getElementById('excWorkingStatus').value;
+  const reason=document.getElementById('excReason').value.trim();
   const [y,m,d] = dateVal.split('-');
   const dateStrDMY = `${d}/${m}/${y}`;
   const now = new Date();
   const loggedAt = now.toLocaleDateString('en-GB') + ' ' + now.toTimeString().slice(0,5);
   checked.forEach(area=>{
-    state.calendarRows = state.calendarRows.filter(r=> !(r.ExceptionDate===dateStrDMY && r.Area===area));
-    state.calendarRows.push({ ExceptionDate: dateStrDMY, Area: area, Working: workingVal, LoggedBy: 'Current User', LoggedAt: loggedAt });
+    state.calendarRows=state.calendarRows.filter(r=>!((r.ExceptionDate||r.Date)===dateStrDMY&&String(r.Area||'All Areas')===area));
+    state.calendarRows.push({RecordType:'Exception',DayOfWeek:'',ExceptionDate:dateStrDMY,Area:area,Working:workingVal,StartTime:'07:00',EndTime:'16:30',Break1Start:'09:55',Break1End:'10:15',Break2Start:'12:55',Break2End:'13:30',Reason:reason,Owner:'Current User',UpdatedAt:loggedAt});
   });
   const {map} = AppEngine.buildExceptionsMap(state.calendarRows);
   state.exceptions = map;
   renderExceptionLog();
   renderAll();
+  document.getElementById('excReason').value='';
   document.querySelectorAll('#areaCheckboxList input:checked').forEach(cb=>cb.checked=false);
 });
 document.getElementById('btnSaveCalendar').addEventListener('click', async ()=>{
-  const headers = ['ExceptionDate','Area','Working','LoggedBy','LoggedAt'];
+  const headers=['RecordType','DayOfWeek','ExceptionDate','Area','Working','StartTime','EndTime','Break1Start','Break1End','Break2Start','Break2End','Reason','Owner','UpdatedAt'];
   const csv = CSVEngine.toCSV(headers, state.calendarRows);
   if(state.handles.prodCal){
     try{
@@ -1927,13 +1947,17 @@ function matchesSearch(rec){
 function closeAllKebabMenus(){ document.querySelectorAll('.kebab-menu.open').forEach(m=>m.classList.remove('open')); }
 document.addEventListener('click', closeAllKebabMenus);
 function cssSafe(s){ return String(s).replace(/[^a-zA-Z0-9]/g,'_'); }
+function buildAreaHierarchyHtml(records){
+  const subAreas=new Map();records.forEach(r=>{const h=AppEngine.resolveHierarchyForRecord(r,state.areaMap),sub=h.subArea||'Unassigned station',rack=h.rack||'General',column=h.column||r.column||'';if(!subAreas.has(sub))subAreas.set(sub,{records:[],racks:new Map(),order:h.displayOrder});const s=subAreas.get(sub);s.records.push(r);if(!s.racks.has(rack))s.racks.set(rack,{records:[],columns:new Set()});const rr=s.racks.get(rack);rr.records.push(r);if(column)rr.columns.add(column);});
+  return `<div class="area-tree">${Array.from(subAreas.entries()).sort((a,b)=>a[1].order-b[1].order||a[0].localeCompare(b[0],undefined,{numeric:true})).map(([sub,data])=>{const open=data.records.filter(r=>r.status!=='Closed').length;return `<details><summary><span>${cycleHtml(sub)}</span><span>${open} open · ${data.records.length} total</span></summary><div class="area-tree-body">${Array.from(data.racks.entries()).sort((a,b)=>a[0].localeCompare(b[0],undefined,{numeric:true})).map(([rack,rd])=>`<details class="rack-detail"><summary><b>${cycleHtml(rack)}</b><span class="rack-count">${rd.records.filter(r=>r.status!=='Closed').length} open</span></summary><div class="rack-columns">${rd.columns.size?Array.from(rd.columns).sort().map(c=>`<span>Column ${cycleHtml(c)}</span>`).join(''):'<span>All columns</span>'}</div></details>`).join('')}</div></details>`;}).join('')}</div>`;
+}
 
 // ================================================================
 // PAGE 1: LIVE DASHBOARD
 // ================================================================
 function renderLive(){
   const now = new Date();
-  document.getElementById('lastRefresh').textContent = now.toLocaleTimeString('en-GB');
+  document.getElementById('lastRefresh').textContent = state.lastDataRefresh?state.lastDataRefresh.toLocaleTimeString('en-GB'):'Not loaded';updateTvClock();
   renderSourceStrip();
 
   const filtered = state.records.filter(matchesSearch);
@@ -1958,7 +1982,7 @@ function renderLive(){
     grid.innerHTML = `<div class="empty-msg" style="grid-column:1/-1;padding:50px;">
       No Kanban data connected yet.<br><br>
       Click <b>Data Connections</b> above and browse to your Kanban export file
-      (e.g. <code>KanbanExport_Sample.csv</code> in the Data folder) to get started.
+      (for example <code>KanbanExport.csv</code> in the shared Data folder) to get started.
     </div>`;
     return;
   }
@@ -1996,12 +2020,13 @@ function renderLive(){
     const pillText = cAlert>0 ? (cAlert+' aging alert'+(cAlert>1?'s':'')) : (openTotal+' open');
     const initials = group.name.replace(/[^A-Za-z0-9]/g,'').slice(0,2).toUpperCase() || 'A';
     const safeKey = cssSafe(group.name);
+    const hierarchyHtml=buildAreaHierarchyHtml(group.records),subAreaCount=new Set(group.records.map(r=>AppEngine.resolveHierarchyForRecord(r,state.areaMap).subArea)).size;
 
     card.innerHTML = `
       <div class="area-head">
         <div class="titlewrap">
           <div class="area-icon">${initials}</div>
-          <div class="title">${group.name}<span class="loc">${group.records[0] ? group.records[0].loc.replace(/-[A-Z0-9]+$/,'')+'-*' : ''}</span></div>
+          <div class="title">${group.name}<span class="loc">${subAreaCount} sub-area${subAreaCount===1?'':'s'} · click below to expand</span></div>
         </div>
         <div class="head-right">
           <span class="area-pill ${pillClass}">${pillText}</span>
@@ -2019,6 +2044,7 @@ function renderLive(){
         <div class="bar-seg" style="width:${pDelivered}%;background:#3f9463" title="Closed / delivered on selected date: ${cDeliveredOnDate}">${cDeliveredOnDate>0?cDeliveredOnDate:''}</div>
       </div>
       <div class="bar-legend"><span>Open: <b>${cOpen}</b></span><span>Staged: <b>${cStaged}</b></span><span>Delivered (view date): <b>${cDeliveredOnDate}</b></span></div>
+      ${hierarchyHtml}
       <details class="request-details">
         <summary>Show ${openList.length} request${openList.length===1?'':'s'} waiting to be picked</summary>
         <table class="req-table">
@@ -2133,8 +2159,10 @@ document.getElementById('btnDoExportCSV').addEventListener('click', ()=>{
 // the header and the row cell are now built from the exact same condition.
 function buildPickListHtml(list, ctx, codeType){
   const now = new Date();
-  const showAreaCol = ctx.scope==='all';
-  const rowsHtml = list.map(r=>{
+  const ordered=list.slice().sort((a,b)=>{
+    const aa=AppEngine.computeAgeMinutes(a,AppEngine.resolveAreaForRecord(a,state.areaMap),state.exceptions,now),bb=AppEngine.computeAgeMinutes(b,AppEngine.resolveAreaForRecord(b,state.areaMap),state.exceptions,now);return bb-aa;
+  });
+  const cards=ordered.map((r,index)=>{
     const areaName = AppEngine.resolveAreaForRecord(r, state.areaMap);
     const effectiveArea = ctx.scope==='all' ? areaName : ctx.groupName;
     const mins = AppEngine.computeAgeMinutes(r, effectiveArea, state.exceptions, now);
@@ -2142,45 +2170,25 @@ function buildPickListHtml(list, ctx, codeType){
     const canvas = document.createElement('canvas');
     let img = '';
     try{
-      if(codeType==='qr') QR.renderToCanvas(r.kanban, canvas, {scale:4, quiet:2, ecLevel:'M'});
-      else CODE128.renderToCanvas(r.kanban, canvas, {moduleWidth:2, height:45, quiet:10, showText:false});
+      if(codeType==='qr') QR.renderToCanvas(r.kanban, canvas, {scale:5, quiet:3, ecLevel:'M'});
+      else CODE128.renderToCanvas(r.kanban, canvas, {moduleWidth:2.4, height:52, quiet:18, showText:false});
       img = canvas.toDataURL('image/png');
     }catch(e){ img=''; }
-    const areaTd = showAreaCol ? `<td>${areaName}</td>` : '';
-    return `<tr>
-      ${areaTd}
-      <td>${r.req}</td>
-      <td>${r.kanban}</td>
-      <td>${r.item}<br><span class="d">${r.desc||''}</span></td>
-      <td style="text-align:center">${r.qty ?? ''}</td>
-      <td style="text-align:center">${img?`<img src="${img}" ${codeType==='qr'?'width="70" height="70"':'height="45"'}>`:''}<div class="code">${r.kanban}</div></td>
-      <td><span class="chip ${lvl}">${AppEngine.fmtAge(mins)}</span></td>
-    </tr>`;
-  }).join('');
-  const areaHeader = showAreaCol ? '<th>Area</th>' : '';
+    return `<article class="pick-card"><div class="order">${index+1}</div><div class="pick-copy"><div class="request">${cycleHtml(r.req||'—')} <span class="chip ${lvl}">${AppEngine.fmtAge(mins)}</span></div><div class="item">${cycleHtml(r.item||'—')} · ${cycleHtml(r.desc||'')}</div><div class="location">${cycleHtml(areaName)} · ${cycleHtml(r.loc||'Location not supplied')}</div></div><div class="scan">${img?`<img src="${img}" class="${codeType==='qr'?'qr':'barcode'}">`:''}<div class="code">${cycleHtml(r.kanban||'—')}</div></div></article>`;
+  });
+  const pages=[];for(let i=0;i<cards.length;i+=10)pages.push(cards.slice(i,i+10));
+  const pageHtml=pages.map((page,i)=>`<section class="print-page"><header><div><h1>Kanban Pick Sheet</h1><p>${ctx.groupName} · Open requests · oldest first</p></div><div class="page-meta">Side ${i+1} of ${pages.length}<br>${now.toLocaleString('en-GB')}</div></header><main>${page.join('')}</main><footer>10 requests per A5 side · print double-sided for 20 requests per sheet · Brompton Bicycle Ltd</footer></section>`).join('');
   return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Pick List — ${ctx.groupName}</title>
   <style>
-    body{font-family:Arial,sans-serif;margin:22px;color:#111;}
-    h1{font-size:17px;margin:0 0 4px;}
-    .meta{color:#555;font-size:11.5px;margin-bottom:14px;}
-    table{width:100%;border-collapse:collapse;font-size:12px;}
-    th{background:#eef3f8;text-align:left;padding:7px;border:1px solid #ccc;}
-    td{padding:7px;border:1px solid #ddd;vertical-align:top;}
-    .d{color:#777;font-size:10.5px;}
-    .code{font-family:monospace;font-size:10.5px;margin-top:2px;color:#333;}
+    @page{size:A5 portrait;margin:6mm}
+    *{box-sizing:border-box}body{font-family:Arial,sans-serif;margin:0;color:#12251c;background:#edf2ef}.print-tools{position:sticky;top:0;padding:10px 16px;background:#173c2b;color:#fff;z-index:5}.print-tools button{padding:7px 14px;border:0;border-radius:7px;font-weight:700}.print-page{width:136mm;min-height:198mm;margin:12px auto;background:#fff;padding:0;display:flex;flex-direction:column;page-break-after:always;box-shadow:0 4px 20px #0002}.print-page:last-child{page-break-after:auto}.print-page header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #08713b;padding:2.5mm 2mm 2mm}.print-page h1{font-size:14pt;margin:0;color:#173c2b}.print-page header p{font-size:7.8pt;margin:1mm 0 0;color:#53665c}.page-meta{text-align:right;font-size:7pt;color:#53665c;line-height:1.35}.print-page main{flex:1}.pick-card{height:17.2mm;border-bottom:.25mm solid #ccd8d1;display:grid;grid-template-columns:7mm 1fr 53mm;gap:2mm;align-items:center;padding:1mm 2mm;page-break-inside:avoid}.order{height:6mm;width:6mm;border-radius:50%;display:grid;place-items:center;background:#173c2b;color:#fff;font-size:7pt;font-weight:700}.request{font-size:8.4pt;font-weight:800;white-space:nowrap}.item{font-size:6.9pt;font-weight:700;margin-top:.6mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.location{font-size:6.3pt;color:#5b6a62;margin-top:.5mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.scan{text-align:center;overflow:hidden}.scan img.barcode{display:block;max-width:51mm;height:9.5mm;margin:auto;object-fit:fill}.scan img.qr{display:block;width:11mm;height:11mm;margin:auto}.code{font-family:monospace;font-size:6.8pt;margin-top:.4mm;letter-spacing:.3mm;color:#263a30}.print-page footer{font-size:6.3pt;color:#63746b;border-top:.25mm solid #ccd8d1;padding:1.4mm 2mm;text-align:center}
     .chip{padding:2px 7px;border-radius:9px;font-weight:700;font-size:10.5px;}
     .chip.r{background:#fde1e1;color:#b91c1c;}
     .chip.a{background:#fdf0d5;color:#92610a;}
     .chip.g{background:#dcfce7;color:#166534;}
-    @media print{ .noprint{display:none;} }
+    @media print{body{background:#fff}.noprint{display:none}.print-page{width:auto;min-height:0;margin:0;box-shadow:none}}
   </style></head><body>
-  <h1>Kanban Pick List — ${ctx.groupName}</h1>
-  <div class="meta">Open requests, longest-aging first · generated ${now.toLocaleString('en-GB')} · Brompton Bicycle Ltd</div>
-  <button class="noprint" onclick="window.print()" style="margin-bottom:10px;padding:6px 14px;">Print / Save as PDF</button>
-  <table>
-    <thead><tr>${areaHeader}<th>Request No.</th><th>Kanban No.</th><th>Item</th><th>Qty</th><th>${codeType==='qr'?'QR':'Barcode'}</th><th>Age</th></tr></thead>
-    <tbody>${rowsHtml}</tbody>
-  </table>
+  <div class="print-tools noprint"><button onclick="window.print()">Print / Save as PDF</button> &nbsp; Set paper to A5, portrait and double-sided. Each side holds 10 requests; each physical sheet holds 20.</div>${pageHtml}
   </body></html>`;
 }
 document.getElementById('btnDoExportPickQR').addEventListener('click', ()=>{
@@ -2698,29 +2706,37 @@ function buildGapAnalysis(from,to,person,gapMinutes){
   const inRange=d=>d&&(!from||AppEngine.toDateStr(d)>=from)&&(!to||AppEngine.toDateStr(d)<=to),rows=[];
   const pickRecords=state.records.filter(r=>inRange(r.pickDate)&&(!person||cycleEventPerson(r,'pick')===person));
   const byPicker=new Map();pickRecords.forEach(r=>{const name=cycleEventPerson(r,'pick')||'Unknown';if(!byPicker.has(name))byPicker.set(name,[]);byPicker.get(name).push(r);});
-  Array.from(byPicker.values()).flatMap(records=>buildPickCycles(records,gapMinutes,'pick')).filter(cycle=>cycle.records.some(r=>!isBsPick(r))).forEach(cycle=>{
-    const picker=cycleEventPerson(cycle.records[0],'pick');
-    const deliveryRecords=state.records.filter(r=>r.delDate&&AppEngine.toDateStr(r.delDate)===cycle.dayKey&&cycleEventPerson(r,'delivery')===picker),deliveryCycles=buildPickCycles(deliveryRecords,gapMinutes,'delivery');
-    const deliveryWindow=deliveryCycles.find(d=>d.end>=cycle.end&&d.start>=cycle.start)||null;
-    const deliveryStart=deliveryWindow?.start||null,deliveryEnd=deliveryWindow?.end||null;
-    const elapsedGap=deliveryStart?Math.max(0,Math.round((deliveryStart-cycle.end)/60000)):null,workingGap=deliveryStart?operationalGapMinutes(cycle.end,deliveryStart):null,breakMinutes=deliveryStart?elapsedGap-workingGap:null;
-    const status=workingGap===null?'No delivery':deliveryStart<cycle.end?'Parallel':workingGap>15?'Issue':workingGap>5?'Watch':'Good',statusRank=workingGap===null?0:workingGap>15?3:workingGap>5?2:1;
-    rows.push({cycleLabel:'',dayKey:cycle.dayKey,person:picker,firstPick:cycle.start,lastPick:cycle.end,firstDelivery:deliveryStart,lastDelivery:deliveryEnd,elapsedGap,breakMinutes,gap:workingGap,status,statusRank,picks:cycle.records.length,deliveries:deliveryWindow?.records.length||0});
+  byPicker.forEach((records,picker)=>{
+    const pickCycles=buildPickCycles(records,gapMinutes,'pick').filter(cycle=>cycle.records.some(r=>!isBsPick(r))).sort((a,b)=>a.start-b.start);
+    const deliveryRecords=state.records.filter(r=>inRange(r.delDate)&&cycleEventPerson(r,'delivery')===picker),deliveryByDay=new Map(),deliveryCursor=new Map();
+    buildPickCycles(deliveryRecords,gapMinutes,'delivery').forEach(c=>{if(!deliveryByDay.has(c.dayKey))deliveryByDay.set(c.dayKey,[]);deliveryByDay.get(c.dayKey).push(c);});
+    pickCycles.forEach(cycle=>{
+      const deliveryCycles=deliveryByDay.get(cycle.dayKey)||[];let index=deliveryCursor.get(cycle.dayKey)||0;while(index<deliveryCycles.length&&deliveryCycles[index].start<cycle.end)index++;
+      const deliveryWindow=deliveryCycles[index]||null;if(deliveryWindow)deliveryCursor.set(cycle.dayKey,index+1);
+      const previousDeliveryWindow=index>0?deliveryCycles[index-1]:null;
+      const deliveryStart=deliveryWindow?.start||null,deliveryEnd=deliveryWindow?.end||null;
+      const afterElapsed=deliveryStart?Math.max(0,Math.round((deliveryStart-cycle.end)/60000)):null,afterPickGap=deliveryStart?operationalGapMinutes(cycle.end,deliveryStart):null,afterBreak=deliveryStart?afterElapsed-afterPickGap:null;
+      const previousDelivery=previousDeliveryWindow?.end||null,beforeElapsed=previousDelivery?Math.max(0,Math.round((cycle.start-previousDelivery)/60000)):null,beforePickGap=previousDelivery?operationalGapMinutes(previousDelivery,cycle.start):null,beforeBreak=previousDelivery?beforeElapsed-beforePickGap:null;
+      const handovers=[beforePickGap,afterPickGap].filter(v=>v!==null),handoverMax=handovers.length?Math.max(...handovers):null,handoverTotal=handovers.reduce((a,b)=>a+b,0),status=handoverMax===null?'No handover':handoverMax>15?'Attention':handoverMax>5?'Monitor':'On target',statusRank=handoverMax===null?0:handoverMax>15?3:handoverMax>5?2:1;
+      rows.push({cycleLabel:'',dayKey:cycle.dayKey,person:picker,previousDelivery,firstPick:cycle.start,lastPick:cycle.end,firstDelivery:deliveryStart,lastDelivery:deliveryEnd,beforeElapsed,beforeBreak,beforePickGap,afterElapsed,afterBreak,afterPickGap,gap:handoverMax,handoverTotal,status,statusRank,picks:cycle.records.length,deliveries:deliveryWindow?.records.length||0});
+    });
   });
   const cycleNumbers=new Map();rows.sort((a,b)=>a.firstPick-b.firstPick).forEach(r=>{const key=`${r.person}|${r.dayKey}`,number=(cycleNumbers.get(key)||0)+1;cycleNumbers.set(key,number);r.cycleLabel=`${r.person||'Unknown'} · Cycle ${number}`;});return rows;
 }
 function renderGapTable(){
   const key=state.gapSort.key,dir=state.gapSort.dir,rows=state.gapData.slice().sort((a,b)=>{let av=a[key],bv=b[key];if(av===null||av===undefined)return 1;if(bv===null||bv===undefined)return -1;if(av instanceof Date)av=av.getTime();if(bv instanceof Date)bv=bv.getTime();if(typeof av==='string')return av.localeCompare(bv,undefined,{numeric:true})*dir;return (av-bv)*dir;});
-  document.getElementById('gapAnalysisBody').innerHTML=rows.length?rows.map(r=>{const tone=r.status==='Issue'?'issue':r.status==='Watch'?'watch':(r.status==='Good'||r.status==='Parallel')?'good':'missing';return `<tr class="loss-${tone}"><td><b>${cycleHtml(r.cycleLabel)}</b></td><td>${new Date(r.dayKey+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td><td>${pickTime(r.firstPick)}</td><td>${pickTime(r.lastPick)}</td><td>${r.firstDelivery?pickTime(r.firstDelivery):'—'}</td><td>${r.lastDelivery?pickTime(r.lastDelivery):'—'}</td><td>${r.elapsedGap===null?'—':r.elapsedGap+' min'}</td><td>${r.breakMinutes===null?'—':r.breakMinutes+' min'}</td><td><span class="loss-value ${tone}">${r.gap===null?'—':r.gap+' min'}</span></td><td><span class="loss-status ${tone}">${cycleHtml(r.status)}</span></td><td>${r.picks}</td></tr>`;}).join(''):'<tr><td colspan="11" class="empty-msg">No pick cycles match this range and person.</td></tr>';
-  document.querySelectorAll('.gap-table th[data-gap-sort]').forEach(th=>{const arrow=th.querySelector('.arrow');arrow.textContent=th.dataset.gapSort===key?(dir===1?'▲':'▼'):'';th.onclick=()=>{const next=th.dataset.gapSort;state.gapSort.dir=state.gapSort.key===next?-state.gapSort.dir:(next==='gap'||next==='elapsedGap'||next==='statusRank'?-1:1);state.gapSort.key=next;renderGapTable();};});
+  const gapCell=(value,breakMins)=>{const tone=value===null?'missing':value>15?'issue':value>5?'watch':'good';return `<span class="loss-value ${tone}">${value===null?'—':value+' min'}</span>${breakMins>0?`<small style="display:block;color:var(--muted);margin-top:3px">${breakMins} break min excluded</small>`:''}`;};
+  document.getElementById('gapAnalysisBody').innerHTML=rows.length?rows.map(r=>{const tone=r.status==='Attention'?'issue':r.status==='Monitor'?'watch':r.status==='On target'?'good':'missing';return `<tr class="loss-${tone}"><td><b>${cycleHtml(r.cycleLabel)}</b></td><td>${new Date(r.dayKey+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td><td>${pickTime(r.previousDelivery)}</td><td>${pickTime(r.firstPick)}</td><td>${pickTime(r.lastPick)}</td><td>${pickTime(r.firstDelivery)}</td><td>${pickTime(r.lastDelivery)}</td><td>${gapCell(r.beforePickGap,r.beforeBreak)}</td><td>${gapCell(r.afterPickGap,r.afterBreak)}</td><td><span class="loss-status ${tone}">${cycleHtml(r.status)}</span></td><td>${r.picks}</td><td>${r.deliveries}</td></tr>`;}).join(''):'<tr><td colspan="12" class="empty-msg">No pick cycles match this range and person.</td></tr>';
+  document.querySelectorAll('.gap-table th[data-gap-sort]').forEach(th=>{const arrow=th.querySelector('.arrow');arrow.textContent=th.dataset.gapSort===key?(dir===1?'▲':'▼'):'';th.onclick=()=>{const next=th.dataset.gapSort;state.gapSort.dir=state.gapSort.key===next?-state.gapSort.dir:(['beforePickGap','afterPickGap','statusRank','picks','deliveries'].includes(next)?-1:1);state.gapSort.key=next;renderGapTable();};});
 }
 function renderGapAnalysis(from,to,person,gapMinutes){
   setGapAnalysisMode(true);state.gapData=buildGapAnalysis(from,to,person,gapMinutes);
-  const matched=state.gapData.filter(r=>r.gap!==null),avg=matched.length?Math.round(matched.reduce((sum,r)=>sum+r.gap,0)/matched.length):null,max=matched.length?Math.max(...matched.map(r=>r.gap)):null,issues=state.gapData.filter(r=>r.status==='Issue').length;
+  const handovers=state.gapData.flatMap(r=>[r.beforePickGap,r.afterPickGap]).filter(v=>v!==null),avg=handovers.length?Math.round(handovers.reduce((sum,v)=>sum+v,0)/handovers.length):null,max=handovers.length?Math.max(...handovers):null,issues=state.gapData.filter(r=>r.status==='Attention').length;
   document.getElementById('gapMatched').textContent=state.gapData.length;document.getElementById('gapAvg').textContent=avg===null?'—':avg+' min';document.getElementById('gapMax').textContent=max===null?'—':max+' min';document.getElementById('gapNoMatch').textContent=issues;
+  const daily=new Map();state.gapData.forEach(r=>daily.set(r.dayKey,(daily.get(r.dayKey)||0)+r.handoverTotal));const dailyRows=Array.from(daily.entries()).sort(),dailyMax=Math.max(1,...dailyRows.map(x=>x[1]));document.getElementById('gapDailySummary').innerHTML=dailyRows.length?dailyRows.map(([day,total])=>`<div class="daily-handover-row"><span class="daily-handover-date">${new Date(day+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short'})}</span><div class="daily-handover-track"><div class="daily-handover-fill" style="width:${Math.max(2,total/dailyMax*100)}%"></div></div><span class="daily-handover-value">${total} min</span></div>`).join(''):'<div class="empty-msg">No handover data in this range.</div>';
   renderGapTable();
   document.getElementById('cycleFromLabel').textContent='Picked from';document.getElementById('cycleToLabel').textContent='Picked to';document.getElementById('cyclePersonLabel').textContent='Picker';
-  document.getElementById('cycleFilterLabel').textContent=from&&to&&person?`${state.gapData.length} pick cycles · ${issues} issues · person ${person}`:'Choose a date range and person';
+  document.getElementById('cycleFilterLabel').textContent=from&&to&&person?`${state.gapData.length} pick cycles · ${issues} over 15 min · person ${person}`:'Choose a date range and person';
 }
 function renderCycles(){
   stopCyclePlayback();populateCycleFilters();
@@ -2796,10 +2812,10 @@ document.getElementById('btnCyclePlay').addEventListener('click',()=>{
 });
 function exportGapAnalysis(){
   const rows=state.gapData,from=document.getElementById('cycleFromDate').value,to=document.getElementById('cycleToDate').value,person=document.getElementById('cyclePicker').value;if(!rows.length){alert('There are no gap-analysis rows to export.');return;}
-  const ordered=rows.slice().sort((a,b)=>(b.gap??-1)-(a.gap??-1));
-  const body=ordered.map(r=>`<tr><td>${cycleHtml(r.cycleLabel)}</td><td>${cycleHtml(r.dayKey)}</td><td>${cycleHtml(r.person)}</td><td>${pickTime(r.firstPick)}</td><td>${pickTime(r.lastPick)}</td><td>${r.firstDelivery?pickTime(r.firstDelivery):''}</td><td>${r.lastDelivery?pickTime(r.lastDelivery):''}</td><td>${r.elapsedGap??''}</td><td>${r.breakMinutes??''}</td><td class="${cycleHtml(r.status)}">${r.gap??''}</td><td class="${cycleHtml(r.status)}">${cycleHtml(r.status)}</td><td>${r.picks}</td><td>${r.deliveries}</td></tr>`).join('');
-  const html=`<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"><style>body{font-family:Arial;color:#173226}h1{color:#08713b}table{border-collapse:collapse}th,td{border:1px solid #cbd8d0;padding:6px 9px;white-space:nowrap}th{background:#173c2b;color:#fff}.Issue{background:#f7dfe1;color:#9d2f3b}.Watch{background:#fff0ce;color:#875b08}.Good,.Parallel{background:#dff1e6;color:#17663f}</style></head><body><h1>Brompton Kanban Lost-Time Review</h1><p>Range: ${cycleHtml(from)} to ${cycleHtml(to)} | Person: ${cycleHtml(person||'All')} | New cycle after ${cycleHtml(document.getElementById('cycleGap').value)} working idle minutes. Pick and delivery windows are paired chronologically, not by item or request. BS-only windows are ignored. Breaks 09:55–10:15 and 12:55–13:30 are excluded from cycle separation and working loss. Status: Good ≤5 min, Parallel = delivery began before picking ended, Watch &gt;5–15 min, Issue &gt;15 min.</p><table><tr><th>Cycle</th><th>Date</th><th>Person</th><th>First pick</th><th>Last pick</th><th>First delivery</th><th>Last delivery</th><th>Calendar gap (min)</th><th>Break excluded (min)</th><th>Working loss (min)</th><th>Status</th><th>Picks</th><th>Deliveries</th></tr>${body}</table></body></html>`;
-  const blob=new Blob(['\ufeff'+html],{type:'application/vnd.ms-excel'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`Brompton_Gap_Analysis_${from}_to_${to}_${person||'All'}.xls`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  const ordered=rows.slice().sort((a,b)=>(b.gap??-1)-(a.gap??-1)),tone=r=>r.status==='Attention'?'Attention':r.status==='Monitor'?'Monitor':r.status==='On target'?'OnTarget':'Missing';
+  const body=ordered.map(r=>`<tr><td>${cycleHtml(r.cycleLabel)}</td><td>${cycleHtml(r.dayKey)}</td><td>${cycleHtml(r.person)}</td><td>${r.previousDelivery?pickTime(r.previousDelivery):''}</td><td>${pickTime(r.firstPick)}</td><td>${pickTime(r.lastPick)}</td><td>${r.firstDelivery?pickTime(r.firstDelivery):''}</td><td>${r.lastDelivery?pickTime(r.lastDelivery):''}</td><td>${r.beforeElapsed??''}</td><td>${r.beforeBreak??''}</td><td class="${tone(r)}">${r.beforePickGap??''}</td><td>${r.afterElapsed??''}</td><td>${r.afterBreak??''}</td><td class="${tone(r)}">${r.afterPickGap??''}</td><td class="${tone(r)}">${cycleHtml(r.status)}</td><td>${r.picks}</td><td>${r.deliveries}</td></tr>`).join('');
+  const html=`<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"><style>body{font-family:Arial;color:#173226}h1{color:#08713b}table{border-collapse:collapse}th,td{border:1px solid #cbd8d0;padding:6px 9px;white-space:nowrap}th{background:#173c2b;color:#fff}.Attention{background:#f7dfe1;color:#9d2f3b}.Monitor{background:#fff0ce;color:#875b08}.OnTarget{background:#dff1e6;color:#17663f}.Missing{background:#eef2ef;color:#67766e}</style></head><body><h1>Brompton Kanban Handover Review</h1><p>Range: ${cycleHtml(from)} to ${cycleHtml(to)} | Person: ${cycleHtml(person||'All')} | New cycle after ${cycleHtml(document.getElementById('cycleGap').value)} working idle minutes. Pick and delivery windows are paired chronologically, not by item or request. Both delivery-to-pick and pick-to-delivery handovers are shown. BS-only windows are ignored. Breaks 09:55–10:15 and 12:55–13:30 are excluded. Status: On target ≤5 min, Monitor &gt;5–15 min, Attention &gt;15 min.</p><table><tr><th>Cycle</th><th>Date</th><th>Person</th><th>Previous delivery</th><th>First pick</th><th>Last pick</th><th>First delivery</th><th>Last delivery</th><th>Delivery→pick elapsed</th><th>Break excluded</th><th>Delivery→pick working</th><th>Pick→delivery elapsed</th><th>Break excluded</th><th>Pick→delivery working</th><th>Status</th><th>Picks</th><th>Deliveries</th></tr>${body}</table></body></html>`;
+  const blob=new Blob(['\ufeff'+html],{type:'application/vnd.ms-excel'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`Brompton_Handover_Analysis_${from}_to_${to}_${person||'All'}.xls`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
 }
 document.getElementById('btnCycleExport').addEventListener('click',()=>{
   if(currentCycleMode()==='gap'){exportGapAnalysis();return;}
@@ -2833,7 +2849,7 @@ document.addEventListener('drop',async e=>{
   const parsed=CSVEngine.parseDelimitedText(text);
   const required=['Request','Item','Status','Requested Date','Kanban Location'];
   if(!required.every(h=>parsed.headers.includes(h))){alert('This does not look like a Kanban export. Required columns: '+required.join(', '));return;}
-  state.records=AppEngine.normalizeRecords(parsed.rows); state.names.kanban=file.name; state.handles.kanban=null;state.connectionMessage=`${file.name} · loaded for this session`;PersistentHandles.remove('kanban').catch(()=>{});
+  state.records=AppEngine.normalizeRecords(parsed.rows); state.names.kanban=file.name; state.handles.kanban=null;state.connectionMessage=`${file.name} · loaded for this session`;state.lastDataRefresh=new Date();PersistentHandles.remove('kanban').catch(()=>{});
   document.getElementById('itemFromDate').value=''; document.getElementById('itemToDate').value='';
   document.getElementById('pickerFromDate').value=''; document.getElementById('pickerToDate').value=''; document.getElementById('pickerPersonFilter').value=''; document.getElementById('pickerDayFilter').value='';
   document.getElementById('trendFromDate').value=''; document.getElementById('trendToDate').value='';
