@@ -16,6 +16,13 @@ The published dashboard reads a CSV selected by the user in Chrome or Edge. The 
 4. Alternatively, select **Connect one CSV** and choose a stable IT-controlled file. Drag-and-drop is session-only and cannot silently refresh after a restart.
 5. Select **TV full screen** for the live stores display. It shows a clock, the last successful data refresh and checks the connected source every five minutes by default.
 
+The Live Dashboard automatically opens on the latest request, pick or delivery date found in the connected export. Its status cards deliberately use two different scopes:
+
+- **Open** and **Staged** show the current outstanding state of the whole file, regardless of when the request was raised.
+- **Requests raised** and **Delivered** show activity on the selected report date only. A request delivered on an earlier date is not counted as delivered today.
+
+Changing the report date therefore changes daily activity without hiding older work that is still genuinely Open or Staged.
+
 The browser stores only a file or directory permission handle. After a browser or computer restart, Chrome/Edge may require one click on **Refresh** to approve access again. Clearing site data, changing browser profile, moving the source, or renaming a directly connected file removes or breaks that remembered connection.
 
 ## Configuration files
@@ -38,7 +45,8 @@ Calendar changes apply immediately in the open report but become permanent only 
 - BS Pick scans (`ASL-STOCK` to `KAN-STAGING`) do not start a gap-analysis work window.
 - Morning and lunch breaks are removed from transition time.
 - Transition status is green at 5 minutes or less, amber above 5 through 15 minutes, and red above 15 minutes.
-- Pick and delivery target counts and durations are configured in Admin and displayed beside actual window results.
+- Pick and delivery target counts and durations are configured in Admin. Window efficiency compares the actual scan rate with the target scan rate: `(actual scans / working minutes) ÷ (target scans / target minutes)`. A 100% result is exactly on target. Single-scan and zero-duration windows are left unscored because their rate would be misleading.
+- **Recoverable transition time** is the working transition time above the five-minute on-target allowance. The headline average is total recoverable minutes divided by active working days, not divided by the number of transitions.
 
 ## Print output
 
