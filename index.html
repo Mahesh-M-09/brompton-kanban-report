@@ -294,13 +294,15 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
 
 /* Compact report chrome + production configuration */
 header.brom-header{min-height:58px;padding:10px 30px;background:linear-gradient(105deg,#101a16,#18372a 72%,#08713b 150%);border-bottom:0}
-.kpi-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.kpi.k-staged{background:#fff8ec}.kpi.k-staged .num{color:#a46d18}
+.kpi-grid{grid-template-columns:repeat(7,minmax(0,1fr))}.kpi.k-staged{background:#fff8ec}.kpi.k-staged .num{color:#a46d18}.kpi.k-picked{background:#f1f8f4}.kpi.k-picked .num{color:#236c49}
 .report-heading{display:flex;align-items:baseline;gap:12px}.report-heading .brom-title{font-size:19px;font-weight:780;letter-spacing:-.025em}.report-heading .brom-sub{margin:0;color:#aec5b8}.tab-bar{position:sticky;top:0;z-index:95}
 .admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.admin-card{background:#fff;border:1px solid #dfe7e1;border-radius:12px;padding:17px;box-shadow:var(--shadow-sm)}.admin-card.wide{grid-column:1/-1}.admin-card h3{margin:0 0 5px;color:#173c2b;font-size:14px}.admin-card p{margin:0 0 13px;color:var(--muted);font-size:11.5px;line-height:1.55}.admin-form-grid{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:10px}.admin-form-grid label{font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}.admin-form-grid input,.admin-form-grid select{display:block;width:100%;height:36px;margin-top:5px;border:1px solid var(--border);border-radius:8px;padding:0 9px;background:#fff}.security-note{border-left:4px solid #d49a2f;background:#fff9eb;padding:9px 11px;color:#765716;font-size:10.5px;line-height:1.45;border-radius:6px}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}
 .dashboard-refresh{display:flex;align-items:center;gap:9px;margin:0 0 14px;padding:9px 12px;border:1px solid #dce7e0;border-radius:10px;background:rgba(255,255,255,.82);color:#52635a;font-size:10.5px}.dashboard-refresh .connection-light{flex:none}.dashboard-refresh b{color:#203d2e}.dashboard-refresh .spacer{flex:1}.dashboard-refresh button{border:0;background:none;color:#08713b;font-weight:800;cursor:pointer}
 .area-explorer{margin:10px 12px 12px}.area-explorer>summary:after{content:'Open station view  ↗'}.area-card .area-explorer-panel{display:none}.area-modal{width:min(1100px,96vw)}.area-flow-shell{padding:4px}.area-flow-date{color:#c9ddd1;font-size:10px}.area-flow{display:grid;grid-template-columns:190px 54px 1fr;gap:14px;align-items:center;min-height:330px}.area-origin{background:linear-gradient(145deg,#13251c,#08713b);color:#fff;border-radius:16px;padding:22px;box-shadow:0 16px 34px rgba(18,62,38,.2)}.area-origin .area-symbol{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:20px;font-weight:900}.area-origin strong{display:block;font-size:20px;margin-top:17px}.area-origin span{display:block;color:#c4d9cd;font-size:10px;margin-top:5px;line-height:1.45}.area-arrow{height:4px;background:linear-gradient(90deg,#08713b,#8fc2a2);position:relative;border-radius:5px}.area-arrow:after{content:'';position:absolute;right:-1px;top:-5px;border-left:11px solid #8fc2a2;border-top:7px solid transparent;border-bottom:7px solid transparent}.station-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.station-card{border:1px solid #dfe8e2;border-radius:12px;background:#fbfcfb;padding:13px;position:relative;overflow:hidden}.station-card:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#3f9463}.station-card.attention:before{background:#b85c66}.station-card.watch:before{background:#c18b34}.station-title{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:850;color:#203d2e}.station-title span{font-size:9px;color:#687b70;font-weight:700}.station-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}.station-metric{background:#f0f5f2;border-radius:7px;padding:7px}.station-metric b{display:block;font-size:16px;color:#173c2b}.station-metric small{color:#718077;font-size:8px;text-transform:uppercase}.station-open{margin-top:9px;font-size:10px;color:#52635a}.station-open b{color:#9c414b}.station-racks{margin-top:8px;border-top:1px solid #e7ede9;padding-top:7px}.station-racks summary{cursor:pointer;color:#08713b;font-size:9.5px;font-weight:800}.station-rack-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.station-rack-list span{background:#e8f2eb;border-radius:999px;padding:4px 7px;font-size:8.5px;color:#315641}.area-no-activity{padding:45px;text-align:center;color:var(--muted)}
 .window-type{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:850;text-transform:uppercase}.window-type.pick{background:#e0f2e6;color:#17663f}.window-type.delivery{background:#e8eef2;color:#395b6c}.target-pill{display:inline-block;margin-left:5px;padding:2px 6px;border-radius:999px;background:#edf4ef;color:#3e6550;font-size:8px}
 .efficiency-chip{display:inline-block;min-width:54px;text-align:center;padding:5px 8px;border-radius:8px;font-size:10px;font-weight:850}.efficiency-chip.good{background:#dff1e6;color:#17663f}.efficiency-chip.watch{background:#fff0ce;color:#875b08}.efficiency-chip.issue{background:#f7dfe1;color:#9d2f3b}.efficiency-chip.missing{background:#eef2ef;color:#67766e}.window-summary{line-height:1.35}.window-summary small{display:block;color:var(--muted);margin-top:3px}.daily-handover-note{font-size:9px;color:var(--muted);margin:-6px 0 10px}
+.area-kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:10px 12px 2px}.area-kpi-cell{border-radius:8px;background:#f2f6f3;padding:7px 6px;text-align:center}.area-kpi-cell b{display:block;font-size:17px;color:#173c2b}.area-kpi-cell small{display:block;margin-top:2px;font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:#66786e}.area-kpi-cell.open{background:#fff0f1}.area-kpi-cell.staged{background:#fff5e3}.area-kpi-cell.picked{background:#edf7f1}.area-kpi-cell.delivered{background:#e5f3ea}.station-flow{grid-template-columns:repeat(5,1fr)}
+.gap-sort-btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:5px;border:0;background:none;padding:0;color:inherit;font:inherit;font-weight:inherit;text-transform:inherit;letter-spacing:inherit;cursor:pointer;text-align:left}.gap-column-filter{display:block;width:100%;max-width:150px;margin-top:6px;padding:4px 20px 4px 5px;border:1px solid #d6e0da;border-radius:6px;background:#fff;color:#40564a;font-size:8.5px;font-weight:650;text-transform:none;letter-spacing:0}.gap-table th{vertical-align:top}.gap-filter-count{margin:0 0 8px;color:#607269;font-size:9.5px}
 @media(max-width:800px){.report-heading .brom-sub{display:none}.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-grid{grid-template-columns:1fr}.admin-card.wide{grid-column:auto}.admin-form-grid{grid-template-columns:1fr}.area-flow{grid-template-columns:1fr}.area-arrow{width:4px;height:34px;margin:auto}.area-arrow:after{right:-5px;top:auto;bottom:-1px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:11px solid #8fc2a2}}
 </style>
 </head>
@@ -344,6 +346,7 @@ header.brom-header{min-height:58px;padding:10px 30px;background:linear-gradient(
       <div class="kpi k-total"><div class="num" id="kpiTotalToday">0</div><div class="lbl">Requests raised (view date)</div></div>
       <div class="kpi k-open"><div class="num" id="kpiOpenNow">0</div><div class="lbl">Open · waiting pick, any date</div></div>
       <div class="kpi k-staged"><div class="num" id="kpiStagedNow">0</div><div class="lbl">Staged · awaiting delivery</div></div>
+      <div class="kpi k-picked"><div class="num" id="kpiPicked">0</div><div class="lbl">Picked on selected date</div></div>
       <div class="kpi k-red"><div class="num" id="kpiAging">0</div><div class="lbl">Open &gt; 3 working hrs</div></div>
       <div class="kpi k-amber"><div class="num" id="kpiWarn">0</div><div class="lbl">Open 1.5–3 working hrs</div></div>
       <div class="kpi k-green"><div class="num" id="kpiDelivered">0</div><div class="lbl">Delivered on view date</div></div>
@@ -482,7 +485,7 @@ header.brom-header{min-height:58px;padding:10px 30px;background:linear-gradient(
       <div class="table-section-title">Daily recoverable transition time</div><div class="daily-handover-note">Working transition minutes above the 5-minute on-target allowance, totalled by day.</div><div class="daily-handover" id="gapDailySummary"></div>
       <div class="item-table-wrap">
         <div class="table-section-title">Chronological activity transitions · click any heading to sort</div>
-        <div class="gap-table-wrap"><table class="item-table gap-table"><thead><tr><th data-gap-sort="dayKey">Date <span class="arrow"></span></th><th data-gap-sort="person">Person <span class="arrow"></span></th><th data-gap-sort="fromStart">From activity <span class="arrow"></span></th><th data-gap-sort="fromEfficiency">Efficiency <span class="arrow"></span></th><th data-gap-sort="workingGap" data-tip="Working minutes between windows. Breaks are excluded. Recoverable time is the portion above the 5-minute on-target allowance.">Transition <span class="arrow">▼</span></th><th data-gap-sort="toStart">Next activity <span class="arrow"></span></th><th data-gap-sort="toEfficiency">Efficiency <span class="arrow"></span></th><th data-gap-sort="statusRank">Status <span class="arrow"></span></th></tr></thead><tbody id="gapAnalysisBody"></tbody></table></div>
+        <div class="gap-filter-count" id="gapFilterCount"></div><div class="gap-table-wrap"><table class="item-table gap-table"><thead><tr><th data-gap-sort="dayKey"><button class="gap-sort-btn">Date <span class="arrow"></span></button><select class="gap-column-filter" data-gap-filter="dayKey" aria-label="Filter date"></select></th><th data-gap-sort="person"><button class="gap-sort-btn">Person <span class="arrow"></span></button><select class="gap-column-filter" data-gap-filter="person" aria-label="Filter person"></select></th><th data-gap-sort="fromStart"><button class="gap-sort-btn">From activity <span class="arrow"></span></button><select class="gap-column-filter" data-gap-filter="fromType" aria-label="Filter from activity"></select></th><th data-gap-sort="fromEfficiency"><button class="gap-sort-btn">Efficiency <span class="arrow"></span></button><select class="gap-column-filter" data-gap-filter="fromEfficiencyBand" aria-label="Filter from efficiency"></select></th><th data-gap-sort="workingGap" data-tip="Working minutes between windows. Breaks are excluded. Recoverable time is the portion above the 5-minute on-target allowance."><button class="gap-sort-btn">Transition <span class="arrow">▼</span></button><select class="gap-column-filter" data-gap-filter="transitionBand" aria-label="Filter transition"></select></th><th data-gap-sort="toStart"><button class="gap-sort-btn">Next activity <span class="arrow"></span></button><select class="gap-column-filter" data-gap-filter="toType" aria-label="Filter next activity"></select></th><th data-gap-sort="toEfficiency"><button class="gap-sort-btn">Efficiency <span class="arrow"></span></button><select class="gap-column-filter" data-gap-filter="toEfficiencyBand" aria-label="Filter next efficiency"></select></th><th data-gap-sort="statusRank"><button class="gap-sort-btn">Status <span class="arrow"></span></button><select class="gap-column-filter" data-gap-filter="status" aria-label="Filter status"></select></th></tr></thead><tbody id="gapAnalysisBody"></tbody></table></div>
       </div>
     </div>
 
@@ -1484,14 +1487,14 @@ const AppEngine = (function(){
   }
 
   // ---------- KPIs ----------
-  // "Open now" / aging counts are based purely on current Status
-  // (never filtered by the selected view date). "Delivered" IS scoped
-  // to the selected date. "Raised today" is scoped to the selected date.
+  // Current workload (Open/Staged) is never date-filtered. Daily flow
+  // (Requested/Picked/Delivered) follows the selected report date.
   function computeKPIs(records, areaMap, exceptions, now, viewDateStr){
-    let totalToday=0, openNow=0, stagedNow=0, aging=0, warn=0, deliveredOnDate=0;
+    let totalToday=0, pickedOnDate=0, openNow=0, stagedNow=0, aging=0, warn=0, deliveredOnDate=0;
     records.forEach(rec=>{
       const areaName = resolveAreaForRecord(rec, areaMap);
       if(rec.reqDate && toDateStr(rec.reqDate)===viewDateStr) totalToday++;
+      if(rec.pickDate && toDateStr(rec.pickDate)===viewDateStr) pickedOnDate++;
       if(rec.status !== 'Closed'){
         if(rec.status==='Staged')stagedNow++;else openNow++;
         const mins = computeAgeMinutes(rec, areaName, exceptions, now);
@@ -1501,7 +1504,7 @@ const AppEngine = (function(){
         deliveredOnDate++;
       }
     });
-    return {totalToday, openNow, stagedNow, aging, warn, deliveredOnDate};
+    return {totalToday, pickedOnDate, openNow, stagedNow, aging, warn, deliveredOnDate};
   }
 
   // ---------- Production calendar exceptions ----------
@@ -1720,6 +1723,7 @@ const state = {
   cycleData: [],
   gapData: [],
   gapSort: { key:'workingGap', dir:-1 },
+  gapFilters: {},
   selectedCycleIndex: 0,
   cyclePickIndex: 0,
   cycleTimer: null,
@@ -1727,10 +1731,9 @@ const state = {
   autoRefreshMinutes: 0,
   connectionMessage: '',
   lastDataRefresh: null,
-  viewDateUserSet: false,
   targets: {pickCount:20,pickMinutes:45,deliveryCount:20,deliveryMinutes:25,idleMinutes:10},
 };
-function todayStr(){ return new Date().toISOString().slice(0,10); }
+function todayStr(){const d=new Date(),pad=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
 state.viewDateStr = todayStr();
 
 // ---------------- Tab switching ----------------
@@ -1781,8 +1784,7 @@ function resetDataDateFilters(){
   ['itemFromDate','itemToDate','pickerFromDate','pickerToDate','trendFromDate','trendToDate','cycleFromDate','cycleToDate'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('pickerPersonFilter').value='';document.getElementById('pickerDayFilter').value='';document.getElementById('cyclePicker').value='';state.selectedCycleIndex=0;
 }
-function latestOperationalDate(records){const dates=records.flatMap(r=>[r.reqDate,r.pickDate,r.delDate]).filter(Boolean);return dates.length?AppEngine.toDateStr(new Date(Math.max(...dates.map(d=>d.getTime())))):todayStr();}
-function applyKanbanText(text,resetFilters=true){const wasEmpty=state.records.length===0,{rows}=CSVEngine.parseDelimitedText(text);state.records=AppEngine.normalizeRecords(rows);if(resetFilters){resetDataDateFilters();state.viewDateUserSet=false;}if(resetFilters||wasEmpty||!state.viewDateUserSet){state.viewDateStr=latestOperationalDate(state.records);const input=document.getElementById('viewDate');if(input)input.value=state.viewDateStr;}}
+function applyKanbanText(text,resetFilters=true){const {rows}=CSVEngine.parseDelimitedText(text);state.records=AppEngine.normalizeRecords(rows);if(resetFilters){resetDataDateFilters();state.viewDateStr=todayStr();const input=document.getElementById('viewDate');if(input)input.value=state.viewDateStr;}}
 
 // ---------------- Source status strip ----------------
 function renderSourceStrip(){
@@ -2047,7 +2049,7 @@ document.getElementById('btnSaveCalendar').addEventListener('click', async ()=>{
 // ---------------- Search / date filter ----------------
 document.getElementById('searchBox').addEventListener('input', e=>{ state.searchVal = e.target.value; renderLive(); });
 document.getElementById('viewDate').value = state.viewDateStr;
-document.getElementById('viewDate').addEventListener('change', e=>{ state.viewDateStr = e.target.value;state.viewDateUserSet=true; renderLive(); if(document.getElementById('pagePeople').classList.contains('active'))renderPeople(); });
+document.getElementById('viewDate').addEventListener('change', e=>{ state.viewDateStr = e.target.value||todayStr(); renderLive(); if(document.getElementById('pagePeople').classList.contains('active'))renderPeople(); });
 
 function matchesSearch(rec){
   if(!state.searchVal) return true;
@@ -2065,16 +2067,16 @@ function buildAreaHierarchyHtml(records,areaName){
 }
 
 function openAreaFlow(areaName){
-  const day=state.viewDateStr,start=new Date(day+'T00:00:00'),end=new Date(day+'T23:59:59.999'),areaRecords=state.records.filter(r=>AppEngine.resolveAreaForRecord(r,state.areaMap)===areaName),stations=new Map();
-  const onDay=d=>d&&d>=start&&d<=end,activeAtEnd=r=>r.reqDate&&r.reqDate<=end&&(!r.delDate||r.delDate>end);
-  areaRecords.forEach(r=>{const h=AppEngine.resolveHierarchyForRecord(r,state.areaMap);if(!(onDay(r.reqDate)||onDay(r.pickDate)||onDay(r.delDate)||activeAtEnd(r)))return;const key=h.subArea||'Unassigned station';if(!stations.has(key))stations.set(key,{name:key,order:h.displayOrder,requests:0,picks:0,deliveries:0,open:0,racks:new Map()});const s=stations.get(key);if(onDay(r.reqDate))s.requests++;if(onDay(r.pickDate))s.picks++;if(onDay(r.delDate))s.deliveries++;if(activeAtEnd(r))s.open++;const rack=h.rack||'General';if(!s.racks.has(rack))s.racks.set(rack,new Set());if(h.column)s.racks.get(rack).add(h.column);});
+  const day=state.viewDateStr,start=new Date(day+'T00:00:00'),end=new Date(day+'T23:59:59.999'),areaRecords=state.records.filter(r=>AppEngine.resolveAreaForRecord(r,state.areaMap)===areaName),stations=new Map(),onDay=d=>d&&d>=start&&d<=end;
+  const ensure=(name,order=999)=>{const key=name||'Unassigned station';if(!stations.has(key))stations.set(key,{name:key,order,requests:0,picks:0,deliveries:0,open:0,staged:0,racks:new Map()});return stations.get(key);};
+  state.areaConfigRows.filter(r=>String(r.Area||'').trim()===areaName).forEach(r=>{const s=ensure(String(r.SubArea||`Station ${r.Station||''}`).trim(),Number(r.DisplayOrder)||999),rack=String(r.Rack||'General').trim()||'General',column=String(r.Column||'').trim();if(!s.racks.has(rack))s.racks.set(rack,new Set());if(column)s.racks.get(rack).add(column);});
+  areaRecords.forEach(r=>{const h=AppEngine.resolveHierarchyForRecord(r,state.areaMap),relevant=r.status!=='Closed'||onDay(r.reqDate)||onDay(r.pickDate)||onDay(r.delDate);if(!relevant)return;const s=ensure(h.subArea,h.displayOrder);if(onDay(r.reqDate))s.requests++;if(onDay(r.pickDate))s.picks++;if(onDay(r.delDate))s.deliveries++;if(r.status==='Staged')s.staged++;else if(r.status!=='Closed')s.open++;const rack=h.rack||'General';if(!s.racks.has(rack))s.racks.set(rack,new Set());if(h.column)s.racks.get(rack).add(h.column);});
   const list=Array.from(stations.values()).sort((a,b)=>a.order-b.order||a.name.localeCompare(b.name,undefined,{numeric:true})),initials=areaName.replace(/[^A-Za-z0-9]/g,'').slice(0,2).toUpperCase()||'A',dateLabel=new Date(day+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
   document.getElementById('areaFlowTitle').textContent=`${areaName} · station flow`;
-  document.getElementById('areaFlowDate').textContent=`Selected day: ${dateLabel} · completions are limited to this day`;
-  document.getElementById('areaFlowBody').innerHTML=list.length?`<div class="area-flow"><div class="area-origin"><div class="area-symbol">${cycleHtml(initials)}</div><strong>${cycleHtml(areaName)}</strong><span>Kanban demand flows from this production area to Stores and returns to the requesting station.</span></div><div class="area-arrow" title="Request → pick → delivery"></div><div class="station-grid">${list.map(s=>{const tone=s.open>0?'attention':s.requests>s.deliveries?'watch':'';const racks=Array.from(s.racks.entries()).sort((a,b)=>a[0].localeCompare(b[0],undefined,{numeric:true}));return `<article class="station-card ${tone}"><div class="station-title">${cycleHtml(s.name)}<span>${s.open?'Needs supply':'Flow complete'}</span></div><div class="station-flow"><div class="station-metric"><b>${s.requests}</b><small>Requested</small></div><div class="station-metric"><b>${s.picks}</b><small>Picked</small></div><div class="station-metric"><b>${s.deliveries}</b><small>Delivered</small></div></div><div class="station-open">Open at end of day: <b>${s.open}</b></div><details class="station-racks"><summary>Rack and column detail</summary><div class="station-rack-list">${racks.map(([rack,columns])=>`<span>${cycleHtml(rack)}${columns.size?' · '+Array.from(columns).sort().map(c=>'C'+cycleHtml(c)).join(', '):''}</span>`).join('')||'<span>General</span>'}</div></details></article>`;}).join('')}</div></div>`:`<div class="area-no-activity">No requests, picks, deliveries or open-at-day-end items were found for this area on ${dateLabel}.</div>`;
+  document.getElementById('areaFlowDate').textContent=`${dateLabel} activity · Open and Staged are current across the full file`;
+  document.getElementById('areaFlowBody').innerHTML=list.length?`<div class="area-flow"><div class="area-origin"><div class="area-symbol">${cycleHtml(initials)}</div><strong>${cycleHtml(areaName)}</strong><span>Open and Staged show current workload. Requested, Picked and Delivered follow the selected report date.</span></div><div class="area-arrow" title="Request → pick → delivery"></div><div class="station-grid">${list.map(s=>{const tone=s.open>0?'attention':s.staged>0?'watch':'';const racks=Array.from(s.racks.entries()).sort((a,b)=>a[0].localeCompare(b[0],undefined,{numeric:true})),status=s.open?'Needs picking':s.staged?'Awaiting delivery':'Clear';return `<article class="station-card ${tone}"><div class="station-title">${cycleHtml(s.name)}<span>${status}</span></div><div class="station-flow"><div class="station-metric"><b>${s.requests}</b><small>Requested</small></div><div class="station-metric"><b>${s.picks}</b><small>Picked</small></div><div class="station-metric"><b>${s.deliveries}</b><small>Delivered</small></div><div class="station-metric"><b>${s.open}</b><small>Open now</small></div><div class="station-metric"><b>${s.staged}</b><small>Staged now</small></div></div><details class="station-racks"><summary>Rack and column detail</summary><div class="station-rack-list">${racks.map(([rack,columns])=>`<span>${cycleHtml(rack)}${columns.size?' · '+Array.from(columns).sort().map(c=>'C'+cycleHtml(c)).join(', '):''}</span>`).join('')||'<span>General</span>'}</div></details></article>`;}).join('')}</div></div>`:`<div class="area-no-activity">No configured stations or matching transactions were found for this area.</div>`;
   openModal('modalAreaFlow');
 }
-document.addEventListener('click',e=>{const btn=e.target.closest('.area-view-button');if(btn){e.preventDefault();openAreaFlow(btn.dataset.areaName);}});
 
 function renderLivePeople(records){
   const host=document.getElementById('livePeople'),day=state.viewDateStr,people=new Map(),ensure=name=>{const key=(name||'Unassigned').trim()||'Unassigned';if(!people.has(key))people.set(key,{name:key,picks:0,deliveries:0});return people.get(key);};
@@ -2097,6 +2099,7 @@ function renderLive(){
   document.getElementById('kpiTotalToday').textContent = kpis.totalToday;
   document.getElementById('kpiOpenNow').textContent = kpis.openNow;
   document.getElementById('kpiStagedNow').textContent = kpis.stagedNow;
+  document.getElementById('kpiPicked').textContent = kpis.pickedOnDate;
   document.getElementById('kpiAging').textContent = kpis.aging;
   document.getElementById('kpiWarn').textContent = kpis.warn;
   document.getElementById('kpiDelivered').textContent = kpis.deliveredOnDate;
@@ -2125,9 +2128,11 @@ function renderLive(){
     // Open (not yet picked) and Staged (picked, awaiting delivery) are
     // tracked separately. Delivered is scoped to the selected view date
     // only, so the number reflects "delivered on this date", not all-time.
-    let cOpen=0, cStaged=0, cDeliveredOnDate=0, cAlert=0;
+    let cRequestsOnDate=0, cPicksOnDate=0, cOpen=0, cStaged=0, cDeliveredOnDate=0, cAlert=0;
     const openList = [];
     group.records.forEach(r=>{
+      if(r.reqDate && AppEngine.toDateStr(r.reqDate)===state.viewDateStr)cRequestsOnDate++;
+      if(r.pickDate && AppEngine.toDateStr(r.pickDate)===state.viewDateStr)cPicksOnDate++;
       if(r.status==='Closed'){
         if(r.delDate && AppEngine.toDateStr(r.delDate)===state.viewDateStr) cDeliveredOnDate++;
       } else {
@@ -2143,9 +2148,6 @@ function renderLive(){
       }
     });
     openList.sort((a,b)=> b.mins-a.mins);
-
-    const total = cOpen+cStaged+cDeliveredOnDate || 1;
-    const pOpen=(cOpen/total*100).toFixed(1), pStaged=(cStaged/total*100).toFixed(1), pDelivered=(cDeliveredOnDate/total*100).toFixed(1);
 
     const card = document.createElement('div');
     card.className = 'area-card' + (cAlert>0?' has-alert':'');
@@ -2172,12 +2174,13 @@ function renderLive(){
           </div>
         </div>
       </div>
-      <div class="bar-chart">
-        <div class="bar-seg" style="width:${pOpen}%;background:#b85c66" title="Open (waiting pick): ${cOpen}">${cOpen>0?cOpen:''}</div>
-        <div class="bar-seg" style="width:${pStaged}%;background:#b8863b;" title="Staged: ${cStaged}">${cStaged>0?cStaged:''}</div>
-        <div class="bar-seg" style="width:${pDelivered}%;background:#3f9463" title="Closed / delivered on selected date: ${cDeliveredOnDate}">${cDeliveredOnDate>0?cDeliveredOnDate:''}</div>
+      <div class="area-kpi-row">
+        <div class="area-kpi-cell"><b>${cRequestsOnDate}</b><small>Requested · date</small></div>
+        <div class="area-kpi-cell picked"><b>${cPicksOnDate}</b><small>Picked · date</small></div>
+        <div class="area-kpi-cell delivered"><b>${cDeliveredOnDate}</b><small>Delivered · date</small></div>
+        <div class="area-kpi-cell open"><b>${cOpen}</b><small>Open now</small></div>
+        <div class="area-kpi-cell staged"><b>${cStaged}</b><small>Staged now</small></div>
       </div>
-      <div class="bar-legend"><span>Open: <b>${cOpen}</b></span><span>Staged: <b>${cStaged}</b></span><span>Delivered (view date): <b>${cDeliveredOnDate}</b></span></div>
       ${hierarchyHtml}
       <details class="request-details">
         <summary>Show ${openList.length} request${openList.length===1?'':'s'} waiting to be picked</summary>
@@ -2188,6 +2191,7 @@ function renderLive(){
       </details>
     `;
     grid.appendChild(card);
+    card.querySelector('.area-view-button')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openAreaFlow(group.name);});
 
     const tbody = card.querySelector(`#tb-${safeKey}`);
     if(openList.length===0){
@@ -2861,14 +2865,33 @@ function buildGapAnalysis(from,to,person,gapMinutes){
   byDay.forEach(dayWindows=>{dayWindows.sort((a,b)=>a.start-b.start);dayWindows.slice(0,-1).forEach((fromWindow,index)=>{const toWindow=dayWindows[index+1],calendarGap=Math.max(0,Math.round((toWindow.start-fromWindow.end)/60000)),workingGap=operationalGapMinutes(fromWindow.end,toWindow.start),breakMinutes=Math.max(0,calendarGap-workingGap),recoverableMinutes=Math.max(0,workingGap-5),status=workingGap>15?'Attention':workingGap>5?'Monitor':'On target',statusRank=workingGap>15?3:workingGap>5?2:1;rows.push({dayKey:fromWindow.dayKey,person:fromWindow.person,fromWindow,toWindow,fromStart:fromWindow.start,fromEnd:fromWindow.end,toStart:toWindow.start,toEnd:toWindow.end,fromEfficiency:fromWindow.efficiency,toEfficiency:toWindow.efficiency,calendarGap,workingGap,breakMinutes,recoverableMinutes,status,statusRank,fromCount:fromWindow.count,toCount:toWindow.count});});});
   return rows.sort((a,b)=>a.fromEnd-b.fromEnd);
 }
+function gapEfficiencyBand(value){return value===null||value===undefined?'not-scored':value>=100?'100-plus':value>=80?'80-99':'below-80';}
+function gapFilterValue(row,key){
+  if(key==='fromType')return row.fromWindow.type;
+  if(key==='toType')return row.toWindow.type;
+  if(key==='fromEfficiencyBand')return gapEfficiencyBand(row.fromEfficiency);
+  if(key==='toEfficiencyBand')return gapEfficiencyBand(row.toEfficiency);
+  if(key==='transitionBand')return row.workingGap>15?'attention':row.workingGap>5?'monitor':'on-target';
+  return String(row[key]??'');
+}
+function gapFilterLabel(key,value){
+  const labels={pick:'Pick',delivery:'Delivery','not-scored':'Not scored','100-plus':'100% and above','80-99':'80–99%','below-80':'Below 80%','on-target':'On target · ≤5 min',monitor:'Monitor · 6–15 min',attention:'Attention · >15 min'};
+  if(key==='dayKey')return new Date(value+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+  return labels[value]||value;
+}
+function renderGapFilterControls(){
+  document.querySelectorAll('.gap-column-filter').forEach(select=>{const key=select.dataset.gapFilter,current=state.gapFilters[key]||'',values=Array.from(new Set(state.gapData.map(r=>gapFilterValue(r,key)))).sort((a,b)=>gapFilterLabel(key,a).localeCompare(gapFilterLabel(key,b),undefined,{numeric:true}));select.innerHTML='<option value="">All</option>'+values.map(v=>`<option value="${cycleHtml(v)}">${cycleHtml(gapFilterLabel(key,v))}</option>`).join('');select.value=values.includes(current)?current:'';if(current&&!values.includes(current))delete state.gapFilters[key];select.onchange=e=>{e.stopPropagation();if(select.value)state.gapFilters[key]=select.value;else delete state.gapFilters[key];renderGapTable();};select.onclick=e=>e.stopPropagation();});
+}
 function renderGapTable(){
-  const key=state.gapSort.key,dir=state.gapSort.dir,rows=state.gapData.slice().sort((a,b)=>{let av=a[key],bv=b[key];if(av===null||av===undefined)return 1;if(bv===null||bv===undefined)return -1;if(av instanceof Date)av=av.getTime();if(bv instanceof Date)bv=bv.getTime();if(typeof av==='string')return av.localeCompare(bv,undefined,{numeric:true})*dir;return (av-bv)*dir;});
+  renderGapFilterControls();
+  const key=state.gapSort.key,dir=state.gapSort.dir,rows=state.gapData.filter(r=>Object.entries(state.gapFilters).every(([filter,value])=>gapFilterValue(r,filter)===value)).sort((a,b)=>{let av=a[key],bv=b[key];if(av===null||av===undefined)return 1;if(bv===null||bv===undefined)return -1;if(av instanceof Date)av=av.getTime();if(bv instanceof Date)bv=bv.getTime();if(typeof av==='string')return av.localeCompare(bv,undefined,{numeric:true})*dir;return (av-bv)*dir;});
+  document.getElementById('gapFilterCount').textContent=Object.keys(state.gapFilters).length?`Showing ${rows.length} of ${state.gapData.length} transitions · ${Object.keys(state.gapFilters).length} column filter${Object.keys(state.gapFilters).length===1?'':'s'} applied`:`Showing all ${state.gapData.length} transitions`;
   const type=w=>`<div class="window-summary"><span class="window-type ${w.type}">${w.type}</span><small>${pickTime(w.start)}–${pickTime(w.end)} · ${w.count} scans in ${w.duration} min</small><small>Target pace ${w.targetCount} / ${w.targetMinutes} min</small></div>`;
-  document.getElementById('gapAnalysisBody').innerHTML=rows.length?rows.map(r=>{const tone=r.status==='Attention'?'issue':r.status==='Monitor'?'watch':'good';return `<tr class="loss-${tone}"><td>${new Date(r.dayKey+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td><td><b>${cycleHtml(r.person)}</b></td><td>${type(r.fromWindow)}</td><td>${efficiencyHtml(r.fromEfficiency)}</td><td><span class="loss-value ${tone}">${r.workingGap} min</span><small style="display:block;color:var(--muted);margin-top:3px">${r.recoverableMinutes} recoverable · ${r.breakMinutes} break excluded</small></td><td>${type(r.toWindow)}</td><td>${efficiencyHtml(r.toEfficiency)}</td><td><span class="loss-status ${tone}">${cycleHtml(r.status)}</span></td></tr>`;}).join(''):'<tr><td colspan="8" class="empty-msg">No consecutive activity windows match this range and person.</td></tr>';
-  document.querySelectorAll('.gap-table th[data-gap-sort]').forEach(th=>{const arrow=th.querySelector('.arrow');arrow.textContent=th.dataset.gapSort===key?(dir===1?'▲':'▼'):'';th.onclick=()=>{const next=th.dataset.gapSort;state.gapSort.dir=state.gapSort.key===next?-state.gapSort.dir:(['workingGap','fromEfficiency','toEfficiency','statusRank'].includes(next)?-1:1);state.gapSort.key=next;renderGapTable();};});
+  document.getElementById('gapAnalysisBody').innerHTML=rows.length?rows.map(r=>{const tone=r.status==='Attention'?'issue':r.status==='Monitor'?'watch':'good';return `<tr class="loss-${tone}"><td>${new Date(r.dayKey+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td><td><b>${cycleHtml(r.person)}</b></td><td>${type(r.fromWindow)}</td><td>${efficiencyHtml(r.fromEfficiency)}</td><td><span class="loss-value ${tone}">${r.workingGap} min</span><small style="display:block;color:var(--muted);margin-top:3px">${r.recoverableMinutes} recoverable · ${r.breakMinutes} break excluded</small></td><td>${type(r.toWindow)}</td><td>${efficiencyHtml(r.toEfficiency)}</td><td><span class="loss-status ${tone}">${cycleHtml(r.status)}</span></td></tr>`;}).join(''):`<tr><td colspan="8" class="empty-msg">${state.gapData.length?'No transitions match the selected column filters.':'No consecutive activity windows match this range and person.'}</td></tr>`;
+  document.querySelectorAll('.gap-table th[data-gap-sort]').forEach(th=>{const arrow=th.querySelector('.arrow'),button=th.querySelector('.gap-sort-btn');arrow.textContent=th.dataset.gapSort===key?(dir===1?'▲':'▼'):'';button.onclick=e=>{e.stopPropagation();const next=th.dataset.gapSort;state.gapSort.dir=state.gapSort.key===next?-state.gapSort.dir:(['workingGap','fromEfficiency','toEfficiency','statusRank'].includes(next)?-1:1);state.gapSort.key=next;renderGapTable();};});
 }
 function renderGapAnalysis(from,to,person,gapMinutes){
-  setGapAnalysisMode(true);state.gapData=buildGapAnalysis(from,to,person,gapMinutes);
+  setGapAnalysisMode(true);state.gapFilters={};state.gapData=buildGapAnalysis(from,to,person,gapMinutes);
   const reviewedWindows=buildActivityWindows(from,to,person,gapMinutes),handovers=state.gapData.map(r=>r.workingGap),max=handovers.length?Math.max(...handovers):null,issues=state.gapData.filter(r=>r.status==='Attention').length,daily=new Map();reviewedWindows.forEach(w=>daily.set(w.dayKey,0));state.gapData.forEach(r=>daily.set(r.dayKey,(daily.get(r.dayKey)||0)+r.recoverableMinutes));const dailyRows=Array.from(daily.entries()).sort(),activeDays=dailyRows.length,totalRecoverable=dailyRows.reduce((sum,x)=>sum+x[1],0),avgPerDay=activeDays?Math.round(totalRecoverable/activeDays):null,efficiencies=reviewedWindows.map(w=>w.efficiency).filter(v=>v!==null),avgEfficiency=efficiencies.length?Math.round(efficiencies.reduce((a,b)=>a+b,0)/efficiencies.length):null;
   document.getElementById('gapActiveDays').textContent=activeDays;document.getElementById('gapAvgDay').textContent=avgPerDay===null?'—':avgPerDay+' min';document.getElementById('gapEfficiency').textContent=avgEfficiency===null?'—':avgEfficiency+'%';document.getElementById('gapMax').textContent=max===null?'—':max+' min';document.getElementById('gapNoMatch').textContent=issues;
   const dailyMax=Math.max(1,...dailyRows.map(x=>x[1]));document.getElementById('gapDailySummary').innerHTML=dailyRows.length?dailyRows.map(([day,total])=>`<div class="daily-handover-row"><span class="daily-handover-date">${new Date(day+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short'})}</span><div class="daily-handover-track"><div class="daily-handover-fill" style="width:${Math.max(2,total/dailyMax*100)}%"></div></div><span class="daily-handover-value">${total} min</span></div>`).join(''):'<div class="empty-msg">No recoverable transition time in this range.</div>';
@@ -2988,7 +3011,7 @@ document.addEventListener('drop',async e=>{
   const parsed=CSVEngine.parseDelimitedText(text);
   const required=['Request','Item','Status','Requested Date','Kanban Location'];
   if(!required.every(h=>parsed.headers.includes(h))){alert('This does not look like a Kanban export. Required columns: '+required.join(', '));return;}
-  state.records=AppEngine.normalizeRecords(parsed.rows);state.viewDateUserSet=false;state.viewDateStr=latestOperationalDate(state.records);document.getElementById('viewDate').value=state.viewDateStr; state.names.kanban=file.name; state.handles.kanban=null;state.connectionMessage=`${file.name} · loaded for this session`;state.lastDataRefresh=new Date();PersistentHandles.remove('kanban').catch(()=>{});
+  state.records=AppEngine.normalizeRecords(parsed.rows);state.viewDateStr=todayStr();document.getElementById('viewDate').value=state.viewDateStr; state.names.kanban=file.name; state.handles.kanban=null;state.connectionMessage=`${file.name} · loaded for this session`;state.lastDataRefresh=new Date();PersistentHandles.remove('kanban').catch(()=>{});
   document.getElementById('itemFromDate').value=''; document.getElementById('itemToDate').value='';
   document.getElementById('pickerFromDate').value=''; document.getElementById('pickerToDate').value=''; document.getElementById('pickerPersonFilter').value=''; document.getElementById('pickerDayFilter').value='';
   document.getElementById('trendFromDate').value=''; document.getElementById('trendToDate').value='';
