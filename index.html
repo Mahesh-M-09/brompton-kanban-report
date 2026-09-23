@@ -334,7 +334,8 @@ header.brom-header{min-height:58px;padding:10px 30px;background:linear-gradient(
   <div class="toolbar">
     <button class="brom-btn outline" id="btnTvMode">TV Full Screen</button>
     <button class="brom-btn green" id="btnOverallExport">Export Aging Report</button>
-    <input type="text" id="searchBox" class="search-input" placeholder="Search Request / Item / Kanban…">
+    <input type="search" id="searchBox" name="kanban-report-filter" class="search-input" placeholder="Search Request / Item / Kanban…" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true">
+    <button type="button" class="brom-btn outline" id="btnClearSearch" hidden>Clear search</button>
     <div class="spacer"></div>
     <div class="refresh-info">Last refreshed: <span id="lastRefresh">–</span><br>Report date: <input type="date" id="viewDate" style="background:#fff;border:1px solid var(--border);color:var(--text);padding:3px 6px;font-size:11px;border-radius:3px;"></div>
   </div>
@@ -625,7 +626,7 @@ header.brom-header{min-height:58px;padding:10px 30px;background:linear-gradient(
 <div class="modal-overlay" id="modalAdminLogin">
   <div class="modal" style="width:390px">
     <div class="modal-head"><h2>Admin access</h2><button class="modal-close" data-close="modalAdminLogin">×</button></div>
-    <div class="modal-body"><p class="hint">Enter the configuration password to open one-time setup.</p><div class="form-row"><label for="adminPassword">Password</label><input type="password" id="adminPassword" autocomplete="off"></div><div id="adminPasswordError" style="display:none;color:#a84650;font-size:11px">Incorrect password.</div></div>
+    <div class="modal-body"><p class="hint">Enter the configuration password to open one-time setup.</p><div class="form-row"><label for="adminPassword">Password</label><input type="password" id="adminPassword" name="kanban-admin-access-code" autocomplete="new-password" data-lpignore="true" data-1p-ignore="true"></div><div id="adminPasswordError" style="display:none;color:#a84650;font-size:11px">Incorrect password.</div></div>
     <div class="modal-actions"><button class="brom-btn green" id="btnAdminUnlock">Unlock Admin</button><button class="brom-btn outline" data-close="modalAdminLogin">Cancel</button></div>
   </div>
 </div>
@@ -2047,7 +2048,18 @@ document.getElementById('btnSaveCalendar').addEventListener('click', async ()=>{
 });
 
 // ---------------- Search / date filter ----------------
-document.getElementById('searchBox').addEventListener('input', e=>{ state.searchVal = e.target.value; renderLive(); });
+// Chrome can mistake a search input for the username paired with the Admin
+// password field. Keep the report unfiltered unless the user actually interacts
+// with Search, and always provide a visible way back from a no-match result.
+const liveSearch=document.getElementById('searchBox'),clearLiveSearch=document.getElementById('btnClearSearch');
+let liveSearchArmed=false;
+['pointerdown','keydown','paste'].forEach(type=>liveSearch.addEventListener(type,()=>{liveSearchArmed=true;}));
+function resetLiveSearch(){liveSearch.value='';state.searchVal='';clearLiveSearch.hidden=true;renderLive();}
+liveSearch.value='';state.searchVal='';
+liveSearch.addEventListener('input',e=>{if(e.target.value&&!liveSearchArmed){e.target.value='';state.searchVal='';clearLiveSearch.hidden=true;return;}state.searchVal=e.target.value.trim();clearLiveSearch.hidden=!state.searchVal;renderLive();});
+clearLiveSearch.addEventListener('click',()=>{liveSearchArmed=true;resetLiveSearch();liveSearch.focus();});
+// Defensive checks catch password-manager fills performed asynchronously after load.
+[250,800,2000,4000].forEach(delay=>setTimeout(()=>{if(!liveSearchArmed&&liveSearch.value)resetLiveSearch();},delay));
 document.getElementById('viewDate').value = state.viewDateStr;
 document.getElementById('viewDate').addEventListener('change', e=>{ state.viewDateStr = e.target.value||todayStr(); renderLive(); if(document.getElementById('pagePeople').classList.contains('active'))renderPeople(); });
 
@@ -2095,7 +2107,9 @@ function renderLive(){
   renderSourceStrip();
 
   const filtered = state.records.filter(matchesSearch);
-  const kpis = AppEngine.computeKPIs(filtered, state.areaMap, state.exceptions, now, state.viewDateStr);
+  // Headline KPIs and person activity always represent the complete file/date.
+  // Search narrows only the area cards and request detail, never the report totals.
+  const kpis = AppEngine.computeKPIs(state.records, state.areaMap, state.exceptions, now, state.viewDateStr);
   document.getElementById('kpiTotalToday').textContent = kpis.totalToday;
   document.getElementById('kpiOpenNow').textContent = kpis.openNow;
   document.getElementById('kpiStagedNow').textContent = kpis.stagedNow;
@@ -2103,7 +2117,7 @@ function renderLive(){
   document.getElementById('kpiAging').textContent = kpis.aging;
   document.getElementById('kpiWarn').textContent = kpis.warn;
   document.getElementById('kpiDelivered').textContent = kpis.deliveredOnDate;
-  renderLivePeople(filtered);
+  renderLivePeople(state.records);
 
   const groups = AppEngine.buildDisplayGroups(filtered, state.areaMap);
   groups.forEach(g=>{
@@ -2121,6 +2135,12 @@ function renderLive(){
       Open <b>Admin</b> and connect the shared data folder or Kanban export
       (recommended standard name: <code>KanbanExport.csv</code>) to get started.
     </div>`;
+    return;
+  }
+
+  if(filtered.length===0){
+    grid.innerHTML=`<div class="empty-msg" style="grid-column:1/-1;padding:48px;background:#fff;border-radius:14px;box-shadow:var(--shadow-sm)"><b>No Kanban records match “${cycleHtml(state.searchVal)}”.</b><br><br>The data is still connected and the headline totals above remain live.<br><br><button type="button" class="brom-btn green" id="btnEmptyClearSearch">Clear search and show all areas</button></div>`;
+    document.getElementById('btnEmptyClearSearch').addEventListener('click',resetLiveSearch);
     return;
   }
 

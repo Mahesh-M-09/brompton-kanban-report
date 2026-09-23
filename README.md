@@ -23,6 +23,8 @@ The Live Dashboard opens on today's date by default. Its status cards deliberate
 
 Changing the report date therefore changes daily activity without hiding older work that is still genuinely Open or Staged.
 
+The Search box filters only area cards and request detail; it does not change headline KPIs or person totals. If a search has no matches, the dashboard shows a clear recovery message instead of an empty page. Search and Admin fields are also isolated from browser password autofill.
+
 Area cards and the graphical station view use the same rule. Each shows selected-date Requested, Picked and Delivered counts alongside current Open and Staged counts. Configured stations remain visible even when their selected-date activity is zero.
 
 The browser stores only a file or directory permission handle. After a browser or computer restart, Chrome/Edge may require one click on **Refresh** to approve access again. Clearing site data, changing browser profile, moving the source, or renaming a directly connected file removes or breaks that remembered connection.
