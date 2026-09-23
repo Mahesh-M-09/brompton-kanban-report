@@ -27,6 +27,8 @@ The Search box filters only area cards and request detail; it does not change he
 
 Area cards and the graphical station view use the same rule. Each shows selected-date Requested, Picked and Delivered counts alongside current Open and Staged counts. Configured stations remain visible even when their selected-date activity is zero.
 
+The graphical station view is a three-column dashboard. Every station has an alert/clear badge, daily flow figures, a current-workload bar and a **+** disclosure containing request, item, status, requested time, working age, rack and column detail.
+
 The browser stores only a file or directory permission handle. After a browser or computer restart, Chrome/Edge may require one click on **Refresh** to approve access again. Clearing site data, changing browser profile, moving the source, or renaming a directly connected file removes or breaks that remembered connection.
 
 ## Configuration files
