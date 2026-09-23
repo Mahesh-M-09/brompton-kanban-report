@@ -291,18 +291,23 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
 .mini-sparkline{height:32px;width:112px;overflow:visible}.mini-sparkline .mini-bar{fill:#93c5a5;transition:fill .15s}.mini-sparkline .mini-bar.latest{fill:#08713b}.mini-sparkline .mini-bar:hover{fill:#0b8a49}.mini-sparkline .baseline{stroke:#dce5df;stroke-width:1}
 .badge-num{display:inline-block;min-width:24px;text-align:center;padding:2px 6px;border-radius:10px;font-weight:700;font-size:11px;}
 .item-search-row{display:flex;gap:10px;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-radius:6px;margin-bottom:14px;align-items:center;}
+
+/* Compact report chrome + production configuration */
+header.brom-header{min-height:58px;padding:10px 30px;background:linear-gradient(105deg,#101a16,#18372a 72%,#08713b 150%);border-bottom:0}
+.report-heading{display:flex;align-items:baseline;gap:12px}.report-heading .brom-title{font-size:19px;font-weight:780;letter-spacing:-.025em}.report-heading .brom-sub{margin:0;color:#aec5b8}.tab-bar{position:sticky;top:0;z-index:95}
+.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.admin-card{background:#fff;border:1px solid #dfe7e1;border-radius:12px;padding:17px;box-shadow:var(--shadow-sm)}.admin-card.wide{grid-column:1/-1}.admin-card h3{margin:0 0 5px;color:#173c2b;font-size:14px}.admin-card p{margin:0 0 13px;color:var(--muted);font-size:11.5px;line-height:1.55}.admin-form-grid{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:10px}.admin-form-grid label{font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}.admin-form-grid input,.admin-form-grid select{display:block;width:100%;height:36px;margin-top:5px;border:1px solid var(--border);border-radius:8px;padding:0 9px;background:#fff}.security-note{border-left:4px solid #d49a2f;background:#fff9eb;padding:9px 11px;color:#765716;font-size:10.5px;line-height:1.45;border-radius:6px}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}
+.dashboard-refresh{display:flex;align-items:center;gap:9px;margin:0 0 14px;padding:9px 12px;border:1px solid #dce7e0;border-radius:10px;background:rgba(255,255,255,.82);color:#52635a;font-size:10.5px}.dashboard-refresh .connection-light{flex:none}.dashboard-refresh b{color:#203d2e}.dashboard-refresh .spacer{flex:1}.dashboard-refresh button{border:0;background:none;color:#08713b;font-weight:800;cursor:pointer}
+.area-explorer{margin:10px 12px 12px}.area-explorer>summary:after{content:'Open station view  ↗'}.area-card .area-explorer-panel{display:none}.area-modal{width:min(1100px,96vw)}.area-flow-shell{padding:4px}.area-flow-date{color:#c9ddd1;font-size:10px}.area-flow{display:grid;grid-template-columns:190px 54px 1fr;gap:14px;align-items:center;min-height:330px}.area-origin{background:linear-gradient(145deg,#13251c,#08713b);color:#fff;border-radius:16px;padding:22px;box-shadow:0 16px 34px rgba(18,62,38,.2)}.area-origin .area-symbol{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:20px;font-weight:900}.area-origin strong{display:block;font-size:20px;margin-top:17px}.area-origin span{display:block;color:#c4d9cd;font-size:10px;margin-top:5px;line-height:1.45}.area-arrow{height:4px;background:linear-gradient(90deg,#08713b,#8fc2a2);position:relative;border-radius:5px}.area-arrow:after{content:'';position:absolute;right:-1px;top:-5px;border-left:11px solid #8fc2a2;border-top:7px solid transparent;border-bottom:7px solid transparent}.station-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.station-card{border:1px solid #dfe8e2;border-radius:12px;background:#fbfcfb;padding:13px;position:relative;overflow:hidden}.station-card:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#3f9463}.station-card.attention:before{background:#b85c66}.station-card.watch:before{background:#c18b34}.station-title{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:850;color:#203d2e}.station-title span{font-size:9px;color:#687b70;font-weight:700}.station-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}.station-metric{background:#f0f5f2;border-radius:7px;padding:7px}.station-metric b{display:block;font-size:16px;color:#173c2b}.station-metric small{color:#718077;font-size:8px;text-transform:uppercase}.station-open{margin-top:9px;font-size:10px;color:#52635a}.station-open b{color:#9c414b}.station-racks{margin-top:8px;border-top:1px solid #e7ede9;padding-top:7px}.station-racks summary{cursor:pointer;color:#08713b;font-size:9.5px;font-weight:800}.station-rack-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.station-rack-list span{background:#e8f2eb;border-radius:999px;padding:4px 7px;font-size:8.5px;color:#315641}.area-no-activity{padding:45px;text-align:center;color:var(--muted)}
+.window-type{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:850;text-transform:uppercase}.window-type.pick{background:#e0f2e6;color:#17663f}.window-type.delivery{background:#e8eef2;color:#395b6c}.target-pill{display:inline-block;margin-left:5px;padding:2px 6px;border-radius:999px;background:#edf4ef;color:#3e6550;font-size:8px}
+@media(max-width:800px){.report-heading .brom-sub{display:none}.admin-grid{grid-template-columns:1fr}.admin-card.wide{grid-column:auto}.admin-form-grid{grid-template-columns:1fr}.area-flow{grid-template-columns:1fr}.area-arrow{width:4px;height:34px;margin:auto}.area-arrow:after{right:-5px;top:auto;bottom:-1px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:11px solid #8fc2a2}}
 </style>
 </head>
 <body>
 
 <header class="brom-header">
-  <div>
-    <div class="brand-mark">
-      <div class="brand-roundel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="6" cy="16" r="4"/><circle cx="18" cy="16" r="4"/><path d="M6 16l4-8h4l4 8M10 8l4 8M8 12h8M12 5h4"/></svg></div>
-      <div class="brand-copy"><strong>BROMPTON</strong><span>Stores · Kanban Operations</span></div>
-    </div>
-    <div class="brom-title" style="margin-top:8px;">Brompton Kanban Report</div>
-    <div class="brom-sub">Daily stores performance · three-hour production protection · demand flow</div>
+  <div class="report-heading">
+    <div class="brom-title">Brompton Kanban Report</div>
+    <div class="brom-sub">Daily stores performance · production protection</div>
   </div>
   <div class="live-badge">Operational report · locally connected data</div>
   <div class="tv-clock"><strong id="tvClock">--:--:--</strong><span id="tvDate">—</span><span>Last data refresh: <b id="tvLastRefresh">—</b></span><span class="tv-exit-hint">Press Esc to exit TV mode</span></div>
@@ -314,6 +319,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
   <button class="tab-btn" data-page="pageItems">Item Analysis</button>
   <button class="tab-btn" data-page="pagePeople">Picker Performance</button>
   <button class="tab-btn" data-page="pageCycles">Pick &amp; Delivery Cycles</button>
+  <button class="tab-btn" data-page="pageAdmin" data-admin="true">Admin</button>
 </div>
 
 <!-- ============================================================ -->
@@ -322,9 +328,6 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
 <div class="page active" id="pageLive">
 
   <div class="toolbar">
-    <button class="brom-btn outline" id="btnDataConn">Data Connections</button>
-    <button class="brom-btn outline" id="btnProdCal">Production Calendar</button>
-    <button class="brom-btn outline" id="btnGuide">Guide</button>
     <button class="brom-btn outline" id="btnTvMode">TV Full Screen</button>
     <button class="brom-btn green" id="btnOverallExport">Export Aging Report</button>
     <input type="text" id="searchBox" class="search-input" placeholder="Search Request / Item / Kanban…">
@@ -333,18 +336,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
   </div>
 
   <div class="wrap">
-
-    <div class="connected-data-bar">
-      <div class="connected-data-icon">↻</div>
-      <div class="connected-data-copy"><strong>Connected Kanban report</strong><span id="quickConnectionStatus"><i class="connection-light"></i>No persistent CSV connected</span></div>
-      <button class="brom-btn outline" id="btnQuickConnect">Connect shared CSV</button>
-      <button class="brom-btn outline" id="btnQuickRefresh" disabled>Refresh latest data</button>
-      <label class="auto-refresh-field">TV refresh<select id="autoRefreshSelect"><option value="0">Off</option><option value="2">Every 2 min</option><option value="5" selected>Every 5 min</option><option value="10">Every 10 min</option></select></label>
-    </div>
-
-    <div class="source-strip" id="sourceStrip"></div>
-
-    <div class="drop-hint" id="dropHint">Drop a Kanban CSV/TSV export anywhere on this page, or use Data Connections. Files stay on this computer.</div>
+    <div class="dashboard-refresh"><i class="connection-light" id="dashboardConnectionLight"></i><span id="dashboardConnectionText">No persistent data source connected</span><span class="spacer"></span><span>Last data refresh: <b id="dashboardLastRefresh">Not loaded</b></span><button type="button" id="btnDashboardRefresh">Refresh</button></div>
 
     <div class="kpi-grid">
       <div class="kpi k-total"><div class="num" id="kpiTotalToday">0</div><div class="lbl">Requests raised (view date)</div></div>
@@ -469,7 +461,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
       <div class="filter-field"><label for="cycleFromDate" id="cycleFromLabel">Picked from</label><input type="date" id="cycleFromDate"></div>
       <div class="filter-field"><label for="cycleToDate" id="cycleToLabel">Picked to</label><input type="date" id="cycleToDate"></div>
       <div class="filter-field"><label for="cyclePicker" id="cyclePersonLabel">Picker</label><select id="cyclePicker"><option value="">Select picker</option></select></div>
-      <div class="filter-field"><label for="cycleGap">New cycle after</label><select id="cycleGap"><option value="10">10 minutes idle</option><option value="15">15 minutes idle</option><option value="20" selected>20 minutes idle</option><option value="30">30 minutes idle</option><option value="45">45 minutes idle</option></select></div>
+      <input type="hidden" id="cycleGap" value="10"><div class="filter-field"><label>Window rules</label><div id="cycleTargetSummary" style="min-height:36px;display:flex;align-items:center;color:#405b4c;font-size:10.5px"></div></div>
       <button class="brom-btn green" id="btnApplyCycle">Analyse cycles</button>
       <button class="brom-btn outline" id="btnCycleExport">Download Excel</button>
       <span style="color:var(--muted);font-size:12px" id="cycleFilterLabel"></span>
@@ -477,16 +469,16 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
 
     <div id="gapAnalysisPanel" style="display:none">
       <div class="cycle-kpis">
-        <div class="cycle-kpi"><strong id="gapMatched">0</strong><span>Pick cycles reviewed</span></div>
-        <div class="cycle-kpi"><strong id="gapAvg">—</strong><span>Average handover time</span></div>
-        <div class="cycle-kpi"><strong id="gapMax">—</strong><span>Longest handover time</span></div>
+        <div class="cycle-kpi"><strong id="gapMatched">0</strong><span>Transitions reviewed</span></div>
+        <div class="cycle-kpi"><strong id="gapAvg">—</strong><span>Average transition time</span></div>
+        <div class="cycle-kpi"><strong id="gapMax">—</strong><span>Longest transition time</span></div>
         <div class="cycle-kpi"><strong id="gapNoMatch">0</strong><span>Over 15 minutes</span></div>
       </div>
-      <div class="loss-legend"><b>Pick and delivery windows are paired by time—not by item or request.</b><span><i class="dot good"></i>On target ≤5 min</span><span><i class="dot watch"></i>Monitor &gt;5–15 min</span><span><i class="dot issue"></i>Attention &gt;15 min</span><span>Breaks excluded; BS Picks do not create a handover window.</span></div>
-      <div class="table-section-title">Daily handover overview</div><div class="daily-handover" id="gapDailySummary"></div>
+      <div class="loss-legend"><b>Every consecutive activity window is reviewed in time order—never matched by item.</b><span><i class="dot good"></i>On target ≤5 min</span><span><i class="dot watch"></i>Monitor &gt;5–15 min</span><span><i class="dot issue"></i>Attention &gt;15 min</span><span>Breaks excluded; BS Pick scans do not start a work window.</span></div>
+      <div class="table-section-title">Daily transition overview</div><div class="daily-handover" id="gapDailySummary"></div>
       <div class="item-table-wrap">
-        <div class="table-section-title">Cycle handover review · click any heading to sort</div>
-        <div class="gap-table-wrap"><table class="item-table gap-table"><thead><tr><th data-gap-sort="cycleLabel">Cycle <span class="arrow"></span></th><th data-gap-sort="dayKey">Date <span class="arrow"></span></th><th data-gap-sort="previousDelivery">Previous delivery <span class="arrow"></span></th><th data-gap-sort="firstPick">First pick <span class="arrow"></span></th><th data-gap-sort="lastPick">Last pick <span class="arrow"></span></th><th data-gap-sort="firstDelivery">First delivery <span class="arrow"></span></th><th data-gap-sort="lastDelivery">Last delivery <span class="arrow"></span></th><th data-gap-sort="beforePickGap" data-tip="Working minutes from the previous delivery window ending to this pick window starting. Breaks are excluded.">Delivery → pick <span class="arrow"></span></th><th data-gap-sort="afterPickGap" data-tip="Working minutes from this pick window ending to its delivery window starting. Breaks are excluded.">Pick → delivery <span class="arrow">▼</span></th><th data-gap-sort="statusRank">Status <span class="arrow"></span></th><th data-gap-sort="picks">Picks <span class="arrow"></span></th><th data-gap-sort="deliveries">Deliveries <span class="arrow"></span></th></tr></thead><tbody id="gapAnalysisBody"></tbody></table></div>
+        <div class="table-section-title">Chronological activity transitions · click any heading to sort</div>
+        <div class="gap-table-wrap"><table class="item-table gap-table"><thead><tr><th data-gap-sort="dayKey">Date <span class="arrow"></span></th><th data-gap-sort="person">Person <span class="arrow"></span></th><th data-gap-sort="fromStart">From window <span class="arrow"></span></th><th data-gap-sort="fromEnd">Ended <span class="arrow"></span></th><th data-gap-sort="toStart">Next window <span class="arrow"></span></th><th data-gap-sort="calendarGap">Elapsed <span class="arrow"></span></th><th data-gap-sort="breakMinutes">Break excluded <span class="arrow"></span></th><th data-gap-sort="workingGap" data-tip="Working minutes between the end of one activity window and the start of the next. Scheduled breaks are excluded.">Transition time <span class="arrow">▼</span></th><th data-gap-sort="statusRank">Status <span class="arrow"></span></th><th data-gap-sort="fromCount">From count <span class="arrow"></span></th><th data-gap-sort="toCount">Next count <span class="arrow"></span></th></tr></thead><tbody id="gapAnalysisBody"></tbody></table></div>
       </div>
     </div>
 
@@ -574,6 +566,63 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
   </div>
 </div>
 
+<!-- PAGE 6: ADMIN / ONE-TIME SETUP -->
+<div class="page" id="pageAdmin">
+  <div class="wrap">
+    <div class="admin-grid">
+      <section class="admin-card wide">
+        <h3>Data source and silent refresh</h3>
+        <p>Recommended: select the synchronised folder once. Every refresh looks first for <b>KanbanExport.csv</b>; if it is not present, the newest <b>ToExcel_ue_BBL_KanbanRpt*.csv</b> is used. The data stays on this computer.</p>
+        <div class="connected-data-bar" style="margin:0">
+          <div class="connected-data-icon">↻</div>
+          <div class="connected-data-copy"><strong>Connected Kanban report</strong><span id="quickConnectionStatus"><i class="connection-light"></i>No persistent CSV connected</span></div>
+          <button class="brom-btn outline" id="btnConnectFolder">Connect data folder</button>
+          <button class="brom-btn outline" id="btnQuickConnect">Connect one CSV</button>
+          <button class="brom-btn outline" id="btnQuickRefresh" disabled>Refresh latest data</button>
+          <label class="auto-refresh-field">Silent refresh<select id="autoRefreshSelect"><option value="0">Off</option><option value="2">Every 2 min</option><option value="5" selected>Every 5 min</option><option value="10">Every 10 min</option></select></label>
+        </div>
+        <div class="source-strip" id="sourceStrip" style="margin:10px 0 0"></div>
+        <div class="drop-hint" id="dropHint" style="margin:10px 0 0">Temporary use: drop a Kanban CSV/TSV here. Dropped files cannot refresh after restart.</div>
+      </section>
+      <section class="admin-card">
+        <h3>Connections and calendar</h3>
+        <p>Connect Area Config and Production Calendar once, or review dated working-day exceptions.</p>
+        <div class="admin-actions"><button class="brom-btn green" id="btnDataConn">Data Connections</button><button class="brom-btn outline" id="btnProdCal">Production Calendar</button><button class="brom-btn outline" id="btnGuide">Report Guide</button></div>
+      </section>
+      <section class="admin-card">
+        <h3>Cycle targets</h3>
+        <p>Targets are performance references. The idle threshold controls when consecutive activity of the same type becomes a new window.</p>
+        <div class="admin-form-grid">
+          <div><label for="adminPickCount">Pick target</label><input type="number" id="adminPickCount" min="1" value="20"></div>
+          <div><label for="adminPickMinutes">Pick window (min)</label><input type="number" id="adminPickMinutes" min="1" value="45"></div>
+          <div><label for="adminDeliveryCount">Delivery target</label><input type="number" id="adminDeliveryCount" min="1" value="20"></div>
+          <div><label for="adminDeliveryMinutes">Delivery window (min)</label><input type="number" id="adminDeliveryMinutes" min="1" value="25"></div>
+          <div><label for="adminIdleMinutes">New window after idle</label><input type="number" id="adminIdleMinutes" min="1" value="10"></div>
+        </div>
+        <div class="admin-actions" style="margin-top:12px"><button class="brom-btn green" id="btnSaveTargets">Save targets</button></div>
+      </section>
+      <section class="admin-card wide"><div class="security-note"><b>Admin access note:</b> this is a browser-only report. The password hides configuration from normal TV users, but it is not enterprise security because the HTML source can be inspected. Use IT file permissions to protect the underlying CSV files.</div><div class="admin-actions" style="margin-top:10px"><button class="brom-btn outline" id="btnAdminLock">Lock Admin</button></div></section>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Area / Station Flow Modal ============ -->
+<div class="modal-overlay" id="modalAreaFlow">
+  <div class="modal area-modal">
+    <div class="modal-head"><div><h2 id="areaFlowTitle">Area station view</h2><div class="area-flow-date" id="areaFlowDate">Selected date</div></div><button class="modal-close" data-close="modalAreaFlow">×</button></div>
+    <div class="modal-body"><div class="area-flow-shell" id="areaFlowBody"></div></div>
+    <div class="modal-actions"><button class="brom-btn outline" data-close="modalAreaFlow">Close</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalAdminLogin">
+  <div class="modal" style="width:390px">
+    <div class="modal-head"><h2>Admin access</h2><button class="modal-close" data-close="modalAdminLogin">×</button></div>
+    <div class="modal-body"><p class="hint">Enter the configuration password to open one-time setup.</p><div class="form-row"><label for="adminPassword">Password</label><input type="password" id="adminPassword" autocomplete="off"></div><div id="adminPasswordError" style="display:none;color:#a84650;font-size:11px">Incorrect password.</div></div>
+    <div class="modal-actions"><button class="brom-btn green" id="btnAdminUnlock">Unlock Admin</button><button class="brom-btn outline" data-close="modalAdminLogin">Cancel</button></div>
+  </div>
+</div>
+
 <!-- ============ Data Connections Modal ============ -->
 <div class="modal-overlay" id="modalDataConn">
   <div class="modal">
@@ -583,7 +632,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
       <div class="conn-row">
         <div class="conn-label">Kanban Export</div>
         <div class="conn-status" id="statusKanban">Not connected</div>
-        <button class="brom-btn small outline" id="btnConnectKanban">Connect CSV…</button>
+        <button class="brom-btn small outline" id="btnConnectKanban">Connect one CSV…</button>
       </div>
       <div class="conn-row">
         <div class="conn-label">Area Config</div>
@@ -598,7 +647,7 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
       <div class="section-divider">
         <div class="section-title">Notes</div>
         <ul style="color:var(--muted);font-size:12px;line-height:1.7;margin:0 0 0 18px;">
-          <li>For the shared report, connect the locally synchronised SharePoint/Teams CSV once. The data remains on this computer and is not uploaded to GitHub.</li>
+          <li>Best option: use <b>Connect data folder</b> on the Admin page. Keep a stable <code>KanbanExport.csv</code>, or let the report select the newest <code>ToExcel_ue_BBL_KanbanRpt*.csv</code>.</li>
           <li>Area Config columns: <code>Line, Station, Area</code>. Edit in Excel, then reconnect if its filename or folder changes.</li>
           <li>If no Area Config is connected, each Line/Station shows as its own individual Area.</li>
           <li>Production Calendar can be edited directly in this dashboard (see Production Calendar button).</li>
@@ -617,7 +666,8 @@ th[data-tip]:hover:after{content:attr(data-tip);position:absolute;z-index:150;le
   <div class="modal" style="width:760px;">
     <div class="modal-head"><h2>Production Calendar</h2><button class="modal-close" data-close="modalProdCal">×</button></div>
     <div class="modal-body">
-      <p class="hint">The connected Production Calendar CSV holds the weekly schedule and dated exceptions. GitHub contains only the dashboard; the browser reads and saves the locally synchronised calendar file.</p>
+      <p class="hint"><b>How saving works:</b> choosing a Friday or Area changes the report immediately in this browser. It becomes permanent only when you click <b>Save Calendar</b>. If the calendar was connected with Browse in Chrome/Edge, the same file is replaced. Otherwise an updated copy downloads and must replace the existing <code>ProductionCalendar.csv</code>.</p>
+      <div class="warn-strip" id="calendarSaveMode">No calendar file connected — Save Calendar will download an updated copy.</div>
       <div class="section-title">Default weekly schedule (all Areas)</div>
       <table class="cal-default-table">
         <tr><th>Day</th><th>Working</th><th>Hours</th></tr>
@@ -1650,7 +1700,7 @@ const state = {
   areaMap: new Map(),
   calendarRows: [],
   exceptions: new Map(),
-  handles: { kanban:null, areaConfig:null, prodCal:null },
+  handles: { kanban:null, kanbanFolder:null, areaConfig:null, prodCal:null },
   names: { kanban:null, areaConfig:null, prodCal:null },
   searchVal: '',
   viewDateStr: new Date().toISOString().slice(0,10),
@@ -1665,7 +1715,7 @@ const state = {
   currentTrendData: [],
   cycleData: [],
   gapData: [],
-  gapSort: { key:'afterPickGap', dir:-1 },
+  gapSort: { key:'workingGap', dir:-1 },
   selectedCycleIndex: 0,
   cyclePickIndex: 0,
   cycleTimer: null,
@@ -1673,6 +1723,7 @@ const state = {
   autoRefreshMinutes: 0,
   connectionMessage: '',
   lastDataRefresh: null,
+  targets: {pickCount:20,pickMinutes:45,deliveryCount:20,deliveryMinutes:25,idleMinutes:10},
 };
 function todayStr(){ return new Date().toISOString().slice(0,10); }
 state.viewDateStr = todayStr();
@@ -1680,6 +1731,9 @@ state.viewDateStr = todayStr();
 // ---------------- Tab switching ----------------
 document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
+    if(btn.dataset.admin==='true'&&sessionStorage.getItem('bromptonAdmin')!=='yes'){
+      document.getElementById('adminPassword').value='';document.getElementById('adminPasswordError').style.display='none';openModal('modalAdminLogin');setTimeout(()=>document.getElementById('adminPassword').focus(),0);return;
+    }
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     btn.classList.add('active');
@@ -1690,6 +1744,8 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     if(btn.dataset.page==='pageCycles') renderCycles();
   });
 });
+document.getElementById('btnAdminUnlock').addEventListener('click',()=>{const input=document.getElementById('adminPassword');if(input.value!=='Brompton1234'){document.getElementById('adminPasswordError').style.display='block';input.select();return;}sessionStorage.setItem('bromptonAdmin','yes');closeModal('modalAdminLogin');document.querySelector('.tab-btn[data-page="pageAdmin"]').click();});
+document.getElementById('adminPassword').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('btnAdminUnlock').click();});
 
 // ---------------- Modal helpers ----------------
 function openModal(id){ document.getElementById(id).classList.add('open'); }
@@ -1735,10 +1791,14 @@ function renderSourceStrip(){
     chip('Area Config', !!state.names.areaConfig, state.names.areaConfig) +
     chip('Production Calendar', !!state.names.prodCal, state.names.prodCal) +
     `<span style="margin-left:auto;color:var(--muted);">${state.records.length} records loaded</span>`;
-  const persistent=!!state.handles.kanban,status=document.getElementById('quickConnectionStatus'),refresh=document.getElementById('btnQuickRefresh');
-  if(status){const light=persistent?(state.records.length?'live':'wait'):'';const message=state.connectionMessage||(persistent?`${state.names.kanban} · ready to refresh`:(state.names.kanban?`${state.names.kanban} · session only`:'No persistent CSV connected'));status.innerHTML=`<i class="connection-light ${light}"></i>${cycleHtml(message)}`;}
+  const persistent=!!(state.handles.kanban||state.handles.kanbanFolder),status=document.getElementById('quickConnectionStatus'),refresh=document.getElementById('btnQuickRefresh');
+  if(status){const light=persistent?(state.records.length?'live':'wait'):'';const message=state.connectionMessage||(persistent?`${state.names.kanban||'Data folder'} · ready to refresh`:(state.names.kanban?`${state.names.kanban} · session only; automatic refresh unavailable`:'No persistent data source connected'));status.innerHTML=`<i class="connection-light ${light}"></i>${cycleHtml(message)}`;}
   if(refresh)refresh.disabled=!persistent;
   const modalStatus=document.getElementById('statusKanban');if(modalStatus){modalStatus.textContent=state.names.kanban?(persistent?`Connected and remembered — ${state.names.kanban}`:`Loaded for this session — ${state.names.kanban}`):'Not connected';modalStatus.classList.toggle('ok',!!state.names.kanban);}
+  const dashLight=document.getElementById('dashboardConnectionLight'),dashText=document.getElementById('dashboardConnectionText'),dashTime=document.getElementById('dashboardLastRefresh');
+  if(dashLight)dashLight.className=`connection-light ${persistent&&state.records.length?'live':persistent?'wait':''}`;
+  if(dashText)dashText.textContent=persistent?(state.connectionMessage||'Persistent source connected'):(state.names.kanban?'Session-only file · connect its file or folder in Admin for silent refresh':'Connect a file or folder in Admin');
+  if(dashTime)dashTime.textContent=state.lastDataRefresh?state.lastDataRefresh.toLocaleTimeString('en-GB'):'Not loaded';
 }
 
 // ---------------- Connect / Refresh files ----------------
@@ -1746,6 +1806,7 @@ function useInputFallback(kind, acceptStr, onText){
   CSVEngine.connectFileInputFallback(acceptStr, ({text, name})=>{
     state.handles[kind] = null;
     PersistentHandles.remove(kind).catch(()=>{});
+    if(kind==='kanban'){state.handles.kanbanFolder=null;PersistentHandles.remove('kanbanFolder').catch(()=>{});}
     state.names[kind] = name;
     if(kind==='kanban')state.connectionMessage=`${name} · loaded for this session`;
     onText(text);
@@ -1760,6 +1821,7 @@ async function connectFile(kind, acceptTypes, acceptStr, onText){
       const handle = await CSVEngine.connectFileFSAccess(acceptTypes);
       const {text, name} = await CSVEngine.readHandle(handle);
       state.handles[kind] = handle;
+      if(kind==='kanban'){state.handles.kanbanFolder=null;await PersistentHandles.remove('kanbanFolder');}
       state.names[kind] = name;
       try{await PersistentHandles.set(kind,handle);}catch(storeError){console.warn('Could not remember file handle',storeError);}
       if(kind==='kanban')state.connectionMessage=`${name} · connected and remembered`;
@@ -1775,6 +1837,28 @@ async function connectFile(kind, acceptTypes, acceptStr, onText){
     useInputFallback(kind, acceptStr, onText);
   }
 }
+
+async function newestKanbanFileFromFolder(directory){
+  const candidates=[];
+  for await(const [name,handle] of directory.entries()){
+    if(handle.kind!=='file')continue;
+    const lower=name.toLowerCase();
+    if(lower==='kanbanexport.csv'||lower==='kanbanexport.tsv'||/^toexcel_ue_bbl_kanbanrpt.*\.(csv|tsv|txt)$/i.test(name)){
+      const file=await handle.getFile();candidates.push({handle,file,preferred:/^kanbanexport\.(csv|tsv)$/i.test(name)});
+    }
+  }
+  candidates.sort((a,b)=>Number(b.preferred)-Number(a.preferred)||b.file.lastModified-a.file.lastModified);
+  return candidates[0]||null;
+}
+async function loadKanbanFolder(directory,requestPermission=false){
+  if(!await hasReadPermission(directory,requestPermission))return false;
+  const found=await newestKanbanFileFromFolder(directory);if(!found){state.connectionMessage='Folder connected · no KanbanExport.csv or ToExcel_ue_BBL_KanbanRpt*.csv found';return false;}
+  const buffer=await found.file.arrayBuffer(),text=CSVEngine.decodeBuffer(buffer);applyKanbanText(text,false);state.names.kanban=found.file.name;state.lastDataRefresh=new Date();state.connectionMessage=`${found.file.name} · refreshed from folder at ${state.lastDataRefresh.toLocaleTimeString('en-GB')}`;return true;
+}
+document.getElementById('btnConnectFolder').addEventListener('click',async()=>{
+  if(!('showDirectoryPicker' in window)){alert('Folder connection requires Chrome or Edge on the published HTTPS dashboard. Use Connect one CSV in this browser.');return;}
+  try{const directory=await window.showDirectoryPicker({mode:'read'});state.handles.kanbanFolder=directory;state.handles.kanban=null;await PersistentHandles.set('kanbanFolder',directory);await PersistentHandles.remove('kanban');await loadKanbanFolder(directory,true);renderSourceStrip();renderAll();}catch(error){if(error?.name!=='AbortError'){console.error(error);alert('The folder could not be connected.');}}
+});
 
 document.getElementById('btnConnectKanban').addEventListener('click', ()=>{
   connectFile('kanban', [{description:'CSV/TSV', accept:{'text/csv':['.csv'], 'text/plain':['.txt','.tsv']}}], '.csv,.txt,.tsv', (text)=>{
@@ -1803,6 +1887,7 @@ document.getElementById('btnConnectProdCal').addEventListener('click', ()=>{
 });
 async function refreshConnectedFiles(requestPermission=false,silent=false){
   let refreshed=0;
+  if(state.handles.kanbanFolder){try{if(await loadKanbanFolder(state.handles.kanbanFolder,requestPermission))refreshed++;else if(!silent)state.connectionMessage='Folder remembered · allow access to refresh';}catch(error){console.error(error);state.connectionMessage='Could not refresh the connected data folder';}}
   for(const kind of ['kanban','areaConfig','prodCal']){
     const handle = state.handles[kind];
     if(handle){
@@ -1827,6 +1912,7 @@ document.getElementById('btnRefreshAll').addEventListener('click',async()=>{
 });
 document.getElementById('btnQuickConnect').addEventListener('click',()=>document.getElementById('btnConnectKanban').click());
 document.getElementById('btnQuickRefresh').addEventListener('click',async()=>await refreshConnectedFiles(true,false));
+document.getElementById('btnDashboardRefresh').addEventListener('click',async()=>await refreshConnectedFiles(true,false));
 function configureAutoRefresh(minutes){
   if(state.autoRefreshTimer){clearInterval(state.autoRefreshTimer);state.autoRefreshTimer=null;}state.autoRefreshMinutes=minutes;localStorage.setItem('bromptonAutoRefreshMinutes',String(minutes));
   if(minutes>0)state.autoRefreshTimer=setInterval(()=>refreshConnectedFiles(false,true),minutes*60000);
@@ -1835,11 +1921,12 @@ document.getElementById('autoRefreshSelect').addEventListener('change',e=>config
 async function restorePersistentConnections(){
   const storedAuto=localStorage.getItem('bromptonAutoRefreshMinutes'),savedMinutes=storedAuto===null?5:(Number(storedAuto)||0);document.getElementById('autoRefreshSelect').value=String(savedMinutes);configureAutoRefresh(savedMinutes);
   if(!CSVEngine.supportsFSAccess){renderSourceStrip();return;}
-  for(const kind of ['kanban','areaConfig','prodCal']){
+  for(const kind of ['kanban','kanbanFolder','areaConfig','prodCal']){
     try{const handle=await PersistentHandles.get(kind);if(handle){state.handles[kind]=handle;state.names[kind]=handle.name;}}
     catch(error){console.warn('Could not restore saved file handle',error);}
   }
-  if(state.handles.kanban)state.connectionMessage=`${state.names.kanban} · remembered; checking permission…`;
+  if(state.handles.kanbanFolder)state.connectionMessage='Data folder remembered; checking permission…';
+  else if(state.handles.kanban)state.connectionMessage=`${state.names.kanban} · remembered; checking permission…`;
   renderSourceStrip();await refreshConnectedFiles(false,true);
 }
 
@@ -1849,6 +1936,21 @@ function updateTvClock(){const now=new Date();document.getElementById('tvClock')
 setInterval(updateTvClock,1000);updateTvClock();
 document.getElementById('btnTvMode').addEventListener('click',async()=>{document.body.classList.add('tv-mode');try{if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();}catch(error){console.warn('Full screen unavailable',error);}updateTvClock();});
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)document.body.classList.remove('tv-mode');});
+
+function loadCycleTargets(){
+  try{const saved=JSON.parse(localStorage.getItem('bromptonCycleTargets')||'null');if(saved)state.targets={...state.targets,...saved};}catch(error){console.warn('Could not read saved targets',error);}
+  const fields={adminPickCount:'pickCount',adminPickMinutes:'pickMinutes',adminDeliveryCount:'deliveryCount',adminDeliveryMinutes:'deliveryMinutes',adminIdleMinutes:'idleMinutes'};
+  Object.entries(fields).forEach(([id,key])=>{const el=document.getElementById(id);if(el)el.value=state.targets[key];});
+  document.getElementById('cycleGap').value=state.targets.idleMinutes;
+  const summary=document.getElementById('cycleTargetSummary');if(summary)summary.innerHTML=`Pick ${state.targets.pickCount}/${state.targets.pickMinutes} min · Delivery ${state.targets.deliveryCount}/${state.targets.deliveryMinutes} min · ${state.targets.idleMinutes} min idle split`;
+}
+document.getElementById('btnSaveTargets').addEventListener('click',()=>{
+  const number=id=>Math.max(1,Number(document.getElementById(id).value)||1);
+  state.targets={pickCount:number('adminPickCount'),pickMinutes:number('adminPickMinutes'),deliveryCount:number('adminDeliveryCount'),deliveryMinutes:number('adminDeliveryMinutes'),idleMinutes:number('adminIdleMinutes')};
+  localStorage.setItem('bromptonCycleTargets',JSON.stringify(state.targets));loadCycleTargets();renderCycles();alert('Cycle targets saved on this browser.');
+});
+document.getElementById('btnAdminLock').addEventListener('click',()=>{sessionStorage.removeItem('bromptonAdmin');document.querySelector('.tab-btn[data-page="pageLive"]').click();});
+loadCycleTargets();
 
 // ---------------- Production Calendar modal ----------------
 function currentAreaNames(){
@@ -1897,6 +1999,7 @@ document.getElementById('btnProdCal').addEventListener('click', ()=>{
   renderAreaCheckboxes();
   renderExceptionLog();
   document.getElementById('excDate').value = todayStr();
+  document.getElementById('calendarSaveMode').innerHTML=state.handles.prodCal?`Connected file: <b>${cycleHtml(state.names.prodCal)}</b>. Save Calendar will replace this file.`:'No writable calendar file connected. Save Calendar will download <b>ProductionCalendar_updated.csv</b>; replace the existing ProductionCalendar.csv with it.';
   openModal('modalProdCal');
 });
 document.getElementById('btnAddException').addEventListener('click', ()=>{
@@ -1949,13 +2052,23 @@ function matchesSearch(rec){
 
 function closeAllKebabMenus(){ document.querySelectorAll('.kebab-menu.open').forEach(m=>m.classList.remove('open')); }
 document.addEventListener('click', closeAllKebabMenus);
-document.addEventListener('click',e=>{const btn=e.target.closest('.area-close');if(!btn)return;e.preventDefault();e.stopPropagation();const panel=btn.closest('.area-explorer');if(panel)panel.open=false;});
 function cssSafe(s){ return String(s).replace(/[^a-zA-Z0-9]/g,'_'); }
 function buildAreaHierarchyHtml(records,areaName){
-  const subAreas=new Map();records.forEach(r=>{const h=AppEngine.resolveHierarchyForRecord(r,state.areaMap),sub=h.subArea||'Unassigned station',rack=h.rack||'General',column=h.column||r.column||'';if(!subAreas.has(sub))subAreas.set(sub,{records:[],racks:new Map(),order:h.displayOrder});const s=subAreas.get(sub);s.records.push(r);if(!s.racks.has(rack))s.racks.set(rack,{records:[],columns:new Set()});const rr=s.racks.get(rack);rr.records.push(r);if(column)rr.columns.add(column);});
-  const tiles=Array.from(subAreas.entries()).sort((a,b)=>a[1].order-b[1].order||a[0].localeCompare(b[0],undefined,{numeric:true})).map(([sub,data])=>{const open=data.records.filter(r=>r.status!=='Closed').length;return `<details><summary><span>${cycleHtml(sub)}<small style="display:block;color:#7b8c82;font-weight:600;margin-top:2px">${open} open · ${data.records.length} total</small></span></summary><div class="area-tree-body">${Array.from(data.racks.entries()).sort((a,b)=>a[0].localeCompare(b[0],undefined,{numeric:true})).map(([rack,rd])=>`<details class="rack-detail"><summary><b>${cycleHtml(rack)}</b><span class="rack-count">${rd.records.filter(r=>r.status!=='Closed').length} open</span></summary><div class="rack-columns">${rd.columns.size?Array.from(rd.columns).sort().map(c=>`<span>Column ${cycleHtml(c)}</span>`).join(''):'<span>All columns</span>'}</div></details>`).join('')}</div></details>`;}).join('');
-  return `<details class="area-explorer"><summary><span>Sub-areas · ${subAreas.size}</span></summary><div class="area-explorer-panel"><div class="area-explorer-head"><div><strong>${cycleHtml(areaName)}</strong><span> · sub-area, rack and column view</span></div><button type="button" class="area-close" title="Minimise sub-areas" aria-label="Minimise sub-areas">×</button></div><div class="area-tree">${tiles}</div></div></details>`;
+  const count=new Set(records.map(r=>AppEngine.resolveHierarchyForRecord(r,state.areaMap).subArea||'Unassigned station')).size;
+  return `<button type="button" class="area-explorer area-view-button" data-area-name="${cycleHtml(areaName)}" style="width:calc(100% - 24px);text-align:left"><span style="display:flex;align-items:center;justify-content:space-between;width:100%"><b>Station flow · ${count} sub-area${count===1?'':'s'}</b><span style="color:#08713b">Open graphical view ↗</span></span></button>`;
 }
+
+function openAreaFlow(areaName){
+  const day=state.viewDateStr,start=new Date(day+'T00:00:00'),end=new Date(day+'T23:59:59.999'),areaRecords=state.records.filter(r=>AppEngine.resolveAreaForRecord(r,state.areaMap)===areaName),stations=new Map();
+  const onDay=d=>d&&d>=start&&d<=end,activeAtEnd=r=>r.reqDate&&r.reqDate<=end&&(!r.delDate||r.delDate>end);
+  areaRecords.forEach(r=>{const h=AppEngine.resolveHierarchyForRecord(r,state.areaMap);if(!(onDay(r.reqDate)||onDay(r.pickDate)||onDay(r.delDate)||activeAtEnd(r)))return;const key=h.subArea||'Unassigned station';if(!stations.has(key))stations.set(key,{name:key,order:h.displayOrder,requests:0,picks:0,deliveries:0,open:0,racks:new Map()});const s=stations.get(key);if(onDay(r.reqDate))s.requests++;if(onDay(r.pickDate))s.picks++;if(onDay(r.delDate))s.deliveries++;if(activeAtEnd(r))s.open++;const rack=h.rack||'General';if(!s.racks.has(rack))s.racks.set(rack,new Set());if(h.column)s.racks.get(rack).add(h.column);});
+  const list=Array.from(stations.values()).sort((a,b)=>a.order-b.order||a.name.localeCompare(b.name,undefined,{numeric:true})),initials=areaName.replace(/[^A-Za-z0-9]/g,'').slice(0,2).toUpperCase()||'A',dateLabel=new Date(day+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+  document.getElementById('areaFlowTitle').textContent=`${areaName} · station flow`;
+  document.getElementById('areaFlowDate').textContent=`Selected day: ${dateLabel} · completions are limited to this day`;
+  document.getElementById('areaFlowBody').innerHTML=list.length?`<div class="area-flow"><div class="area-origin"><div class="area-symbol">${cycleHtml(initials)}</div><strong>${cycleHtml(areaName)}</strong><span>Kanban demand flows from this production area to Stores and returns to the requesting station.</span></div><div class="area-arrow" title="Request → pick → delivery"></div><div class="station-grid">${list.map(s=>{const tone=s.open>0?'attention':s.requests>s.deliveries?'watch':'';const racks=Array.from(s.racks.entries()).sort((a,b)=>a[0].localeCompare(b[0],undefined,{numeric:true}));return `<article class="station-card ${tone}"><div class="station-title">${cycleHtml(s.name)}<span>${s.open?'Needs supply':'Flow complete'}</span></div><div class="station-flow"><div class="station-metric"><b>${s.requests}</b><small>Requested</small></div><div class="station-metric"><b>${s.picks}</b><small>Picked</small></div><div class="station-metric"><b>${s.deliveries}</b><small>Delivered</small></div></div><div class="station-open">Open at end of day: <b>${s.open}</b></div><details class="station-racks"><summary>Rack and column detail</summary><div class="station-rack-list">${racks.map(([rack,columns])=>`<span>${cycleHtml(rack)}${columns.size?' · '+Array.from(columns).sort().map(c=>'C'+cycleHtml(c)).join(', '):''}</span>`).join('')||'<span>General</span>'}</div></details></article>`;}).join('')}</div></div>`:`<div class="area-no-activity">No requests, picks, deliveries or open-at-day-end items were found for this area on ${dateLabel}.</div>`;
+  openModal('modalAreaFlow');
+}
+document.addEventListener('click',e=>{const btn=e.target.closest('.area-view-button');if(btn){e.preventDefault();openAreaFlow(btn.dataset.areaName);}});
 
 function renderLivePeople(records){
   const host=document.getElementById('livePeople'),day=state.viewDateStr,people=new Map(),ensure=name=>{const key=(name||'Unassigned').trim()||'Unassigned';if(!people.has(key))people.set(key,{name:key,picks:0,deliveries:0});return people.get(key);};
@@ -1995,8 +2108,8 @@ function renderLive(){
   if(state.records.length===0){
     grid.innerHTML = `<div class="empty-msg" style="grid-column:1/-1;padding:50px;">
       No Kanban data connected yet.<br><br>
-      Click <b>Data Connections</b> above and browse to your Kanban export file
-      (for example <code>KanbanExport.csv</code> in the shared Data folder) to get started.
+      Open <b>Admin</b> and connect the shared data folder or Kanban export
+      (recommended standard name: <code>KanbanExport.csv</code>) to get started.
     </div>`;
     return;
   }
@@ -2677,7 +2790,7 @@ function buildPickCycles(records,gapMinutes,mode){
   const dayCounts=new Map();
   return cycles.map((c,i)=>{
     c.number=i+1;c.dayNumber=(dayCounts.get(c.dayKey)||0)+1;dayCounts.set(c.dayKey,c.dayNumber);c.start=cycleEventDate(c.records[0],mode);c.end=cycleEventDate(c.records[c.records.length-1],mode);
-    c.duration=Math.max(0,Math.round((c.end-c.start)/60000));c.bsPicks=mode==='pick'?c.records.filter(isBsPick).length:0;c.uniqueDestinations=new Set(c.records.map(r=>cycleEventLocation(r,mode)).filter(Boolean)).size;
+    c.duration=Math.max(0,Math.round((c.end-c.start)/60000));c.targetCount=mode==='pick'?state.targets.pickCount:state.targets.deliveryCount;c.targetMinutes=mode==='pick'?state.targets.pickMinutes:state.targets.deliveryMinutes;c.bsPicks=mode==='pick'?c.records.filter(isBsPick).length:0;c.uniqueDestinations=new Set(c.records.map(r=>cycleEventLocation(r,mode)).filter(Boolean)).size;
     c.movementStops=mode==='pick'?c.records.filter(r=>!isBsPick(r)):c.records.filter(r=>cycleEventLocation(r,mode));return c;
   });
 }
@@ -2704,53 +2817,50 @@ function populateCycleFilters(){
   const modeDates=mode==='gap'?state.records.flatMap(r=>[r.pickDate,r.delDate]):state.records.map(r=>cycleEventDate(r,mode));
   const dates=Array.from(new Set(modeDates.filter(Boolean).map(d=>AppEngine.toDateStr(d)))).sort();
   if(dates.length&&!toInput.value)toInput.value=dates[dates.length-1];
-  if(dates.length&&!fromInput.value){const max=new Date(dates[dates.length-1]+'T12:00:00'),cut=new Date(max);cut.setDate(cut.getDate()-6);fromInput.value=dates.find(d=>d>=AppEngine.toDateStr(cut))||dates[0];}
+  if(dates.length&&!fromInput.value){if(mode==='gap')fromInput.value=dates[0];else{const max=new Date(dates[dates.length-1]+'T12:00:00'),cut=new Date(max);cut.setDate(cut.getDate()-6);fromInput.value=dates.find(d=>d>=AppEngine.toDateStr(cut))||dates[0];}}
   if(fromInput.value&&toInput.value&&fromInput.value>toInput.value)fromInput.value=toInput.value;
   const from=fromInput.value,to=toInput.value,select=document.getElementById('cyclePicker'),keep=select.value;
   const inRange=d=>d&&(!from||AppEngine.toDateStr(d)>=from)&&(!to||AppEngine.toDateStr(d)<=to);
   const people=Array.from(new Set(mode==='gap'?state.records.flatMap(r=>{const found=[];if(inRange(r.pickDate)&&String(r.pickBy||'').trim())found.push(String(r.pickBy).trim());if(inRange(r.delDate)&&String(r.delBy||'').trim())found.push(String(r.delBy).trim());return found;}):state.records.filter(r=>inRange(cycleEventDate(r,mode))).map(r=>cycleEventPerson(r,mode)).filter(Boolean))).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
   select.innerHTML=`<option value="">${mode==='gap'?'All pickers':`Select ${mode==='delivery'?'deliverer':'picker'}`}</option>`+people.map(p=>`<option value="${cycleHtml(p)}">${cycleHtml(p)}</option>`).join('');
-  select.value=people.includes(keep)?keep:(people.includes('1047')?'1047':(people[0]||''));
+  select.value=people.includes(keep)?keep:(mode==='gap'?'':(people.includes('1047')?'1047':(people[0]||'')));
 }
 function setGapAnalysisMode(active){
   document.getElementById('gapAnalysisPanel').style.display=active?'block':'none';
   ['cycleKpis','cycleWindowsCard','cycleGrid','cycleDetailWrap'].forEach(id=>document.getElementById(id).style.display=active?'none':'');
 }
-function buildGapAnalysis(from,to,person,gapMinutes){
-  const inRange=d=>d&&(!from||AppEngine.toDateStr(d)>=from)&&(!to||AppEngine.toDateStr(d)<=to),rows=[];
-  const pickRecords=state.records.filter(r=>inRange(r.pickDate)&&(!person||cycleEventPerson(r,'pick')===person));
-  const byPicker=new Map();pickRecords.forEach(r=>{const name=cycleEventPerson(r,'pick')||'Unknown';if(!byPicker.has(name))byPicker.set(name,[]);byPicker.get(name).push(r);});
-  byPicker.forEach((records,picker)=>{
-    const pickCycles=buildPickCycles(records,gapMinutes,'pick').filter(cycle=>cycle.records.some(r=>!isBsPick(r))).sort((a,b)=>a.start-b.start);
-    const deliveryRecords=state.records.filter(r=>inRange(r.delDate)&&cycleEventPerson(r,'delivery')===picker),deliveryByDay=new Map(),deliveryCursor=new Map();
-    buildPickCycles(deliveryRecords,gapMinutes,'delivery').forEach(c=>{if(!deliveryByDay.has(c.dayKey))deliveryByDay.set(c.dayKey,[]);deliveryByDay.get(c.dayKey).push(c);});
-    pickCycles.forEach(cycle=>{
-      const deliveryCycles=deliveryByDay.get(cycle.dayKey)||[];let index=deliveryCursor.get(cycle.dayKey)||0;while(index<deliveryCycles.length&&deliveryCycles[index].start<cycle.end)index++;
-      const deliveryWindow=deliveryCycles[index]||null;if(deliveryWindow)deliveryCursor.set(cycle.dayKey,index+1);
-      const previousDeliveryWindow=index>0?deliveryCycles[index-1]:null;
-      const deliveryStart=deliveryWindow?.start||null,deliveryEnd=deliveryWindow?.end||null;
-      const afterElapsed=deliveryStart?Math.max(0,Math.round((deliveryStart-cycle.end)/60000)):null,afterPickGap=deliveryStart?operationalGapMinutes(cycle.end,deliveryStart):null,afterBreak=deliveryStart?afterElapsed-afterPickGap:null;
-      const previousDelivery=previousDeliveryWindow?.end||null,beforeElapsed=previousDelivery?Math.max(0,Math.round((cycle.start-previousDelivery)/60000)):null,beforePickGap=previousDelivery?operationalGapMinutes(previousDelivery,cycle.start):null,beforeBreak=previousDelivery?beforeElapsed-beforePickGap:null;
-      const handovers=[beforePickGap,afterPickGap].filter(v=>v!==null),handoverMax=handovers.length?Math.max(...handovers):null,handoverTotal=handovers.reduce((a,b)=>a+b,0),status=handoverMax===null?'No handover':handoverMax>15?'Attention':handoverMax>5?'Monitor':'On target',statusRank=handoverMax===null?0:handoverMax>15?3:handoverMax>5?2:1;
-      rows.push({cycleLabel:'',dayKey:cycle.dayKey,person:picker,previousDelivery,firstPick:cycle.start,lastPick:cycle.end,firstDelivery:deliveryStart,lastDelivery:deliveryEnd,beforeElapsed,beforeBreak,beforePickGap,afterElapsed,afterBreak,afterPickGap,gap:handoverMax,handoverTotal,status,statusRank,picks:cycle.records.length,deliveries:deliveryWindow?.records.length||0});
-    });
+function buildActivityWindows(from,to,person,gapMinutes){
+  const inRange=d=>d&&(!from||AppEngine.toDateStr(d)>=from)&&(!to||AppEngine.toDateStr(d)<=to),groups=new Map();
+  const add=(record,type,date,name)=>{name=String(name||'').trim();if(!date||!name||!inRange(date)||person&&name!==person)return;const dayKey=AppEngine.toDateStr(date),key=`${name}|${dayKey}`;if(!groups.has(key))groups.set(key,{person:name,dayKey,events:[]});groups.get(key).events.push({record,type,date});};
+  state.records.forEach(r=>{if(!isBsPick(r))add(r,'pick',r.pickDate,r.pickBy);add(r,'delivery',r.delDate,r.delBy);});
+  const windows=[];
+  groups.forEach(group=>{
+    group.events.sort((a,b)=>a.date-b.date||(a.type==='pick'?-1:1));let current=null;
+    group.events.forEach(event=>{const gap=current?operationalGapMinutes(current.end,event.date):null,newWindow=!current||current.type!==event.type||gap>gapMinutes;if(newWindow){current={person:group.person,dayKey:group.dayKey,type:event.type,start:event.date,end:event.date,events:[event]};windows.push(current);}else{current.events.push(event);current.end=event.date;}});
   });
-  const cycleNumbers=new Map();rows.sort((a,b)=>a.firstPick-b.firstPick).forEach(r=>{const key=`${r.person}|${r.dayKey}`,number=(cycleNumbers.get(key)||0)+1;cycleNumbers.set(key,number);r.cycleLabel=`${r.person||'Unknown'} · Cycle ${number}`;});return rows;
+  windows.forEach(w=>{w.count=w.events.length;w.duration=operationalGapMinutes(w.start,w.end);w.targetCount=w.type==='pick'?state.targets.pickCount:state.targets.deliveryCount;w.targetMinutes=w.type==='pick'?state.targets.pickMinutes:state.targets.deliveryMinutes;w.paceMinutes=w.count?Math.round(w.duration/Math.max(1,w.count)*10)/10:null;});
+  return windows.sort((a,b)=>a.person.localeCompare(b.person,undefined,{numeric:true})||a.start-b.start);
+}
+function buildGapAnalysis(from,to,person,gapMinutes){
+  const windows=buildActivityWindows(from,to,person,gapMinutes),byDay=new Map(),rows=[];
+  windows.forEach(w=>{const key=`${w.person}|${w.dayKey}`;if(!byDay.has(key))byDay.set(key,[]);byDay.get(key).push(w);});
+  byDay.forEach(dayWindows=>{dayWindows.sort((a,b)=>a.start-b.start);dayWindows.slice(0,-1).forEach((fromWindow,index)=>{const toWindow=dayWindows[index+1],calendarGap=Math.max(0,Math.round((toWindow.start-fromWindow.end)/60000)),workingGap=operationalGapMinutes(fromWindow.end,toWindow.start),breakMinutes=Math.max(0,calendarGap-workingGap),status=workingGap>15?'Attention':workingGap>5?'Monitor':'On target',statusRank=workingGap>15?3:workingGap>5?2:1;rows.push({dayKey:fromWindow.dayKey,person:fromWindow.person,fromWindow,toWindow,fromStart:fromWindow.start,fromEnd:fromWindow.end,toStart:toWindow.start,toEnd:toWindow.end,calendarGap,workingGap,breakMinutes,status,statusRank,fromCount:fromWindow.count,toCount:toWindow.count});});});
+  return rows.sort((a,b)=>a.fromEnd-b.fromEnd);
 }
 function renderGapTable(){
   const key=state.gapSort.key,dir=state.gapSort.dir,rows=state.gapData.slice().sort((a,b)=>{let av=a[key],bv=b[key];if(av===null||av===undefined)return 1;if(bv===null||bv===undefined)return -1;if(av instanceof Date)av=av.getTime();if(bv instanceof Date)bv=bv.getTime();if(typeof av==='string')return av.localeCompare(bv,undefined,{numeric:true})*dir;return (av-bv)*dir;});
-  const gapCell=(value,breakMins)=>{const tone=value===null?'missing':value>15?'issue':value>5?'watch':'good';return `<span class="loss-value ${tone}">${value===null?'—':value+' min'}</span>${breakMins>0?`<small style="display:block;color:var(--muted);margin-top:3px">${breakMins} break min excluded</small>`:''}`;};
-  document.getElementById('gapAnalysisBody').innerHTML=rows.length?rows.map(r=>{const tone=r.status==='Attention'?'issue':r.status==='Monitor'?'watch':r.status==='On target'?'good':'missing';return `<tr class="loss-${tone}"><td><b>${cycleHtml(r.cycleLabel)}</b></td><td>${new Date(r.dayKey+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td><td>${pickTime(r.previousDelivery)}</td><td>${pickTime(r.firstPick)}</td><td>${pickTime(r.lastPick)}</td><td>${pickTime(r.firstDelivery)}</td><td>${pickTime(r.lastDelivery)}</td><td>${gapCell(r.beforePickGap,r.beforeBreak)}</td><td>${gapCell(r.afterPickGap,r.afterBreak)}</td><td><span class="loss-status ${tone}">${cycleHtml(r.status)}</span></td><td>${r.picks}</td><td>${r.deliveries}</td></tr>`;}).join(''):'<tr><td colspan="12" class="empty-msg">No pick cycles match this range and person.</td></tr>';
-  document.querySelectorAll('.gap-table th[data-gap-sort]').forEach(th=>{const arrow=th.querySelector('.arrow');arrow.textContent=th.dataset.gapSort===key?(dir===1?'▲':'▼'):'';th.onclick=()=>{const next=th.dataset.gapSort;state.gapSort.dir=state.gapSort.key===next?-state.gapSort.dir:(['beforePickGap','afterPickGap','statusRank','picks','deliveries'].includes(next)?-1:1);state.gapSort.key=next;renderGapTable();};});
+  const type=w=>`<span class="window-type ${w.type}">${w.type}</span><small style="display:block;color:var(--muted);margin-top:4px">${pickTime(w.start)}–${pickTime(w.end)}</small>`;
+  document.getElementById('gapAnalysisBody').innerHTML=rows.length?rows.map(r=>{const tone=r.status==='Attention'?'issue':r.status==='Monitor'?'watch':'good';return `<tr class="loss-${tone}"><td>${new Date(r.dayKey+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</td><td><b>${cycleHtml(r.person)}</b></td><td>${type(r.fromWindow)}</td><td>${pickTime(r.fromEnd)}</td><td>${type(r.toWindow)}</td><td>${r.calendarGap} min</td><td>${r.breakMinutes} min</td><td><span class="loss-value ${tone}">${r.workingGap} min</span></td><td><span class="loss-status ${tone}">${cycleHtml(r.status)}</span></td><td>${r.fromCount}<span class="target-pill">target ${r.fromWindow.targetCount}/${r.fromWindow.targetMinutes}m</span></td><td>${r.toCount}<span class="target-pill">target ${r.toWindow.targetCount}/${r.toWindow.targetMinutes}m</span></td></tr>`;}).join(''):'<tr><td colspan="11" class="empty-msg">No consecutive activity windows match this range and person.</td></tr>';
+  document.querySelectorAll('.gap-table th[data-gap-sort]').forEach(th=>{const arrow=th.querySelector('.arrow');arrow.textContent=th.dataset.gapSort===key?(dir===1?'▲':'▼'):'';th.onclick=()=>{const next=th.dataset.gapSort;state.gapSort.dir=state.gapSort.key===next?-state.gapSort.dir:(['workingGap','calendarGap','breakMinutes','statusRank','fromCount','toCount'].includes(next)?-1:1);state.gapSort.key=next;renderGapTable();};});
 }
 function renderGapAnalysis(from,to,person,gapMinutes){
   setGapAnalysisMode(true);state.gapData=buildGapAnalysis(from,to,person,gapMinutes);
-  const handovers=state.gapData.flatMap(r=>[r.beforePickGap,r.afterPickGap]).filter(v=>v!==null),avg=handovers.length?Math.round(handovers.reduce((sum,v)=>sum+v,0)/handovers.length):null,max=handovers.length?Math.max(...handovers):null,issues=state.gapData.filter(r=>r.status==='Attention').length;
+  const handovers=state.gapData.map(r=>r.workingGap),avg=handovers.length?Math.round(handovers.reduce((sum,v)=>sum+v,0)/handovers.length):null,max=handovers.length?Math.max(...handovers):null,issues=state.gapData.filter(r=>r.status==='Attention').length;
   document.getElementById('gapMatched').textContent=state.gapData.length;document.getElementById('gapAvg').textContent=avg===null?'—':avg+' min';document.getElementById('gapMax').textContent=max===null?'—':max+' min';document.getElementById('gapNoMatch').textContent=issues;
-  const daily=new Map();state.gapData.forEach(r=>daily.set(r.dayKey,(daily.get(r.dayKey)||0)+r.handoverTotal));const dailyRows=Array.from(daily.entries()).sort(),dailyMax=Math.max(1,...dailyRows.map(x=>x[1]));document.getElementById('gapDailySummary').innerHTML=dailyRows.length?dailyRows.map(([day,total])=>`<div class="daily-handover-row"><span class="daily-handover-date">${new Date(day+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short'})}</span><div class="daily-handover-track"><div class="daily-handover-fill" style="width:${Math.max(2,total/dailyMax*100)}%"></div></div><span class="daily-handover-value">${total} min</span></div>`).join(''):'<div class="empty-msg">No handover data in this range.</div>';
+  const daily=new Map();state.gapData.forEach(r=>daily.set(r.dayKey,(daily.get(r.dayKey)||0)+r.workingGap));const dailyRows=Array.from(daily.entries()).sort(),dailyMax=Math.max(1,...dailyRows.map(x=>x[1]));document.getElementById('gapDailySummary').innerHTML=dailyRows.length?dailyRows.map(([day,total])=>`<div class="daily-handover-row"><span class="daily-handover-date">${new Date(day+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short'})}</span><div class="daily-handover-track"><div class="daily-handover-fill" style="width:${Math.max(2,total/dailyMax*100)}%"></div></div><span class="daily-handover-value">${total} min</span></div>`).join(''):'<div class="empty-msg">No transition data in this range.</div>';
   renderGapTable();
-  document.getElementById('cycleFromLabel').textContent='Picked from';document.getElementById('cycleToLabel').textContent='Picked to';document.getElementById('cyclePersonLabel').textContent='Picker';
-  document.getElementById('cycleFilterLabel').textContent=from&&to&&person?`${state.gapData.length} pick cycles · ${issues} over 15 min · person ${person}`:'Choose a date range and person';
+  document.getElementById('cycleFromLabel').textContent='Activity from';document.getElementById('cycleToLabel').textContent='Activity to';document.getElementById('cyclePersonLabel').textContent='Person';
+  document.getElementById('cycleFilterLabel').textContent=from&&to?`${state.gapData.length} transitions · ${issues} over 15 min · ${person?'person '+person:'all people'}`:'Choose a date range';
 }
 function renderCycles(){
   stopCyclePlayback();populateCycleFilters();
@@ -2760,7 +2870,8 @@ function renderCycles(){
   state.cycleData=buildPickCycles(events,gap,mode);state.cycleData.forEach(c=>c.transition=transitionGapForCycle(c));state.selectedCycleIndex=Math.min(state.selectedCycleIndex,Math.max(0,state.cycleData.length-1));state.cyclePickIndex=0;
   const durations=state.cycleData.map(c=>c.duration),bs=mode==='pick'?events.filter(isBsPick).length:new Set(events.map(r=>cycleEventLocation(r,mode)).filter(Boolean)).size,eventWord=mode==='delivery'?'deliveries':'picks';
   document.getElementById('cycleFromLabel').textContent=mode==='delivery'?'Delivered from':'Picked from';document.getElementById('cycleToLabel').textContent=mode==='delivery'?'Delivered to':'Picked to';document.getElementById('cyclePersonLabel').textContent=mode==='delivery'?'Deliverer':'Picker';
-  document.getElementById('ckTotalLabel').textContent=mode==='delivery'?'Total deliveries':'Total picks';document.getElementById('ckCycleLabel').textContent=mode==='delivery'?'Delivery cycles':'Pick cycles';document.getElementById('ckAvgLabel').textContent=mode==='delivery'?'Average deliveries / cycle':'Average picks / cycle';document.getElementById('ckExtraLabel').textContent=mode==='delivery'?'Unique destinations':'BS Picks';
+  const targetCount=mode==='delivery'?state.targets.deliveryCount:state.targets.pickCount,targetMinutes=mode==='delivery'?state.targets.deliveryMinutes:state.targets.pickMinutes;
+  document.getElementById('ckTotalLabel').textContent=mode==='delivery'?'Total deliveries':'Total picks';document.getElementById('ckCycleLabel').textContent=mode==='delivery'?'Delivery cycles':'Pick cycles';document.getElementById('ckAvgLabel').textContent=`Average ${mode==='delivery'?'deliveries':'picks'} / cycle · target ${targetCount}`;document.getElementById('ckExtraLabel').textContent=mode==='delivery'?'Unique destinations':'BS Picks';
   document.getElementById('cycleWindowHeading').textContent=mode==='delivery'?'Daily delivery windows':'Daily pick windows';document.getElementById('cycleCountHeader').textContent=mode==='delivery'?'Deliveries':'Picks';document.getElementById('cycleExtraHeader').textContent=mode==='delivery'?'Destinations':'BS Picks';
   document.getElementById('cycleTransitionHeader').textContent=(mode==='delivery'?'Last pick → first delivery':'Last delivery → first pick')+' (working)';
   document.getElementById('cycleEventHeader').textContent=mode==='delivery'?'Delivery':'Pick';document.getElementById('cycleGapHeader').textContent=(mode==='delivery'?'From previous delivery':'From previous pick')+' (working)';document.getElementById('cycleLocationHeader').textContent=mode==='delivery'?'Deliver to':'Pick from';document.getElementById('cycleMapHeader').textContent=mode==='delivery'?'Route point':'Mapped area';
@@ -2770,7 +2881,7 @@ function renderCycles(){
   document.getElementById('ckAvgDuration').textContent=durations.length?Math.round(durations.reduce((a,b)=>a+b,0)/durations.length)+' min':'0 min';
   document.getElementById('ckBsPicks').textContent=bs;
   document.getElementById('cycleFilterLabel').textContent=from&&to&&picker?`${events.length} ${eventWord} · ${state.cycleData.length} windows · ${mode==='delivery'?'deliverer':'picker'} ${picker}`:`Choose a date range and ${mode==='delivery'?'deliverer':'picker'}`;
-  document.getElementById('cycleTimeline').innerHTML=state.cycleData.length?state.cycleData.map((c,i)=>`<tr class="${i===state.selectedCycleIndex?'active':''}" data-cycle-index="${i}"><td>${new Date(c.dayKey+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short'})}</td><td><b>${pickTime(c.start)}–${pickTime(c.end)}</b> · Window ${c.dayNumber}</td><td title="${c.transition?pickTime(c.transition.date)+' to '+pickTime(c.start):'No earlier opposite activity on this date'}">${c.transition?c.transition.gap+' min':'—'}</td><td>${c.records.length}</td><td>${c.duration} min</td><td>${mode==='delivery'?c.uniqueDestinations:c.bsPicks}</td></tr>`).join(''):`<tr><td colspan="6" class="empty-msg">No ${eventWord} match this range and person.</td></tr>`;
+  document.getElementById('cycleTimeline').innerHTML=state.cycleData.length?state.cycleData.map((c,i)=>`<tr class="${i===state.selectedCycleIndex?'active':''}" data-cycle-index="${i}"><td>${new Date(c.dayKey+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short'})}</td><td><b>${pickTime(c.start)}–${pickTime(c.end)}</b> · Window ${c.dayNumber}</td><td title="${c.transition?pickTime(c.transition.date)+' to '+pickTime(c.start):'No earlier opposite activity on this date'}">${c.transition?c.transition.gap+' min':'—'}</td><td>${c.records.length}<span class="target-pill">target ${c.targetCount}</span></td><td>${c.duration} min<span class="target-pill">target ${c.targetMinutes}m</span></td><td>${mode==='delivery'?c.uniqueDestinations:c.bsPicks}</td></tr>`).join(''):`<tr><td colspan="6" class="empty-msg">No ${eventWord} match this range and person.</td></tr>`;
   document.querySelectorAll('[data-cycle-index]').forEach(row=>row.addEventListener('click',()=>{state.selectedCycleIndex=Number(row.dataset.cycleIndex);state.cyclePickIndex=0;renderCycleDetail();document.querySelectorAll('[data-cycle-index]').forEach((r,i)=>r.classList.toggle('active',i===state.selectedCycleIndex));}));
   renderCycleDetail();
 }
@@ -2826,9 +2937,9 @@ document.getElementById('btnCyclePlay').addEventListener('click',()=>{
 });
 function exportGapAnalysis(){
   const rows=state.gapData,from=document.getElementById('cycleFromDate').value,to=document.getElementById('cycleToDate').value,person=document.getElementById('cyclePicker').value;if(!rows.length){alert('There are no gap-analysis rows to export.');return;}
-  const ordered=rows.slice().sort((a,b)=>(b.gap??-1)-(a.gap??-1)),tone=r=>r.status==='Attention'?'Attention':r.status==='Monitor'?'Monitor':r.status==='On target'?'OnTarget':'Missing';
-  const body=ordered.map(r=>`<tr><td>${cycleHtml(r.cycleLabel)}</td><td>${cycleHtml(r.dayKey)}</td><td>${cycleHtml(r.person)}</td><td>${r.previousDelivery?pickTime(r.previousDelivery):''}</td><td>${pickTime(r.firstPick)}</td><td>${pickTime(r.lastPick)}</td><td>${r.firstDelivery?pickTime(r.firstDelivery):''}</td><td>${r.lastDelivery?pickTime(r.lastDelivery):''}</td><td>${r.beforeElapsed??''}</td><td>${r.beforeBreak??''}</td><td class="${tone(r)}">${r.beforePickGap??''}</td><td>${r.afterElapsed??''}</td><td>${r.afterBreak??''}</td><td class="${tone(r)}">${r.afterPickGap??''}</td><td class="${tone(r)}">${cycleHtml(r.status)}</td><td>${r.picks}</td><td>${r.deliveries}</td></tr>`).join('');
-  const html=`<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"><style>body{font-family:Arial;color:#173226}h1{color:#08713b}table{border-collapse:collapse}th,td{border:1px solid #cbd8d0;padding:6px 9px;white-space:nowrap}th{background:#173c2b;color:#fff}.Attention{background:#f7dfe1;color:#9d2f3b}.Monitor{background:#fff0ce;color:#875b08}.OnTarget{background:#dff1e6;color:#17663f}.Missing{background:#eef2ef;color:#67766e}</style></head><body><h1>Brompton Kanban Handover Review</h1><p>Range: ${cycleHtml(from)} to ${cycleHtml(to)} | Person: ${cycleHtml(person||'All')} | New cycle after ${cycleHtml(document.getElementById('cycleGap').value)} working idle minutes. Pick and delivery windows are paired chronologically, not by item or request. Both delivery-to-pick and pick-to-delivery handovers are shown. BS-only windows are ignored. Breaks 09:55–10:15 and 12:55–13:30 are excluded. Status: On target ≤5 min, Monitor &gt;5–15 min, Attention &gt;15 min.</p><table><tr><th>Cycle</th><th>Date</th><th>Person</th><th>Previous delivery</th><th>First pick</th><th>Last pick</th><th>First delivery</th><th>Last delivery</th><th>Delivery→pick elapsed</th><th>Break excluded</th><th>Delivery→pick working</th><th>Pick→delivery elapsed</th><th>Break excluded</th><th>Pick→delivery working</th><th>Status</th><th>Picks</th><th>Deliveries</th></tr>${body}</table></body></html>`;
+  const ordered=rows.slice().sort((a,b)=>b.workingGap-a.workingGap),tone=r=>r.status==='Attention'?'Attention':r.status==='Monitor'?'Monitor':'OnTarget';
+  const body=ordered.map(r=>`<tr><td>${cycleHtml(r.dayKey)}</td><td>${cycleHtml(r.person)}</td><td>${cycleHtml(r.fromWindow.type)}</td><td>${pickTime(r.fromStart)}</td><td>${pickTime(r.fromEnd)}</td><td>${r.fromCount}</td><td>${cycleHtml(r.toWindow.type)}</td><td>${pickTime(r.toStart)}</td><td>${pickTime(r.toEnd)}</td><td>${r.toCount}</td><td>${r.calendarGap}</td><td>${r.breakMinutes}</td><td class="${tone(r)}">${r.workingGap}</td><td class="${tone(r)}">${cycleHtml(r.status)}</td><td>${r.fromWindow.targetCount}/${r.fromWindow.targetMinutes} min</td><td>${r.toWindow.targetCount}/${r.toWindow.targetMinutes} min</td></tr>`).join('');
+  const html=`<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"><style>body{font-family:Arial;color:#173226}h1{color:#08713b}table{border-collapse:collapse}th,td{border:1px solid #cbd8d0;padding:6px 9px;white-space:nowrap}th{background:#173c2b;color:#fff}.Attention{background:#f7dfe1;color:#9d2f3b}.Monitor{background:#fff0ce;color:#875b08}.OnTarget{background:#dff1e6;color:#17663f}</style></head><body><h1>Brompton Kanban Activity Transition Review</h1><p>Range: ${cycleHtml(from)} to ${cycleHtml(to)} | Person: ${cycleHtml(person||'All')} | Same-type activity starts a new window after ${state.targets.idleMinutes} working idle minutes; a change between picking and delivery always starts a new window. Events are sequenced by person and time, never by item or request. BS Pick scans do not start a work window. Breaks 09:55–10:15 and 12:55–13:30 are excluded. Status: On target ≤5 min, Monitor &gt;5–15 min, Attention &gt;15 min.</p><table><tr><th>Date</th><th>Person</th><th>From type</th><th>From start</th><th>From end</th><th>From count</th><th>Next type</th><th>Next start</th><th>Next end</th><th>Next count</th><th>Elapsed min</th><th>Break excluded</th><th>Working transition min</th><th>Status</th><th>From target</th><th>Next target</th></tr>${body}</table></body></html>`;
   const blob=new Blob(['\ufeff'+html],{type:'application/vnd.ms-excel'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`Brompton_Handover_Analysis_${from}_to_${to}_${person||'All'}.xls`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
 }
 document.getElementById('btnCycleExport').addEventListener('click',()=>{

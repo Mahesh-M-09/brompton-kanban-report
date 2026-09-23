@@ -11,19 +11,34 @@ The published dashboard reads a CSV selected by the user in Chrome or Edge. The 
 ## Using the shared dashboard
 
 1. Open the GitHub Pages link in Chrome or Edge.
-2. Select **Connect shared CSV**.
-3. Choose the IT-controlled Kanban CSV from the locally synchronised SharePoint/Teams folder.
-4. When IT replaces the file using the same filename, select **Refresh latest data**.
-5. Select **TV full screen** for the live stores display. It shows a clock, the last data refresh and silently checks the connected file every five minutes by default.
+2. Open **Admin** and enter the configuration password supplied to the Stores team.
+3. Recommended: select **Connect data folder** and choose the locally synchronised SharePoint/Teams folder. The dashboard uses `KanbanExport.csv`; if that file is absent it uses the newest `ToExcel_ue_BBL_KanbanRpt*.csv`.
+4. Alternatively, select **Connect one CSV** and choose a stable IT-controlled file. Drag-and-drop is session-only and cannot silently refresh after a restart.
+5. Select **TV full screen** for the live stores display. It shows a clock, the last successful data refresh and checks the connected source every five minutes by default.
+
+The browser stores only a file or directory permission handle. After a browser or computer restart, Chrome/Edge may require one click on **Refresh** to approve access again. Clearing site data, changing browser profile, moving the source, or renaming a directly connected file removes or breaks that remembered connection.
 
 ## Configuration files
 
 The `templates` folder contains two safe-to-share configuration files and no transaction data:
 
-- `AreaConfig.csv` defines the clickable hierarchy: line (area), station (sub-area), rack and column.
+- `AreaConfig.csv` defines the graphical hierarchy: line (area), station (sub-area), rack and column.
 - `ProductionCalendar.csv` defines weekly working days, shift times, breaks and dated exceptions. Connect it from **Production calendar** in the dashboard. A locally synchronised SharePoint/Teams copy can remain under IT control while the dashboard itself stays on GitHub Pages.
 
 The dashboard uses the connected calendar when calculating working age. If no calendar is connected, its fallback is Monday–Thursday, 07:00–16:30, excluding 09:55–10:15 and 12:55–13:30.
+
+Calendar changes apply immediately in the open report but become permanent only after **Save Calendar**. With a writable file connection, Save replaces the connected CSV. With a session-only upload, the browser downloads `ProductionCalendar_updated.csv`; that downloaded file must replace the controlled `ProductionCalendar.csv`.
+
+## Activity-window and transition logic
+
+- Events are grouped by person and calendar date, then ordered strictly by timestamp.
+- Changing from picking to delivery, or delivery to picking, always starts a new window.
+- Consecutive activity of the same type starts a new window when working idle time exceeds the Admin threshold (10 minutes by default).
+- Gap analysis measures each consecutive window transition once. It never matches by request or item.
+- BS Pick scans (`ASL-STOCK` to `KAN-STAGING`) do not start a gap-analysis work window.
+- Morning and lunch breaks are removed from transition time.
+- Transition status is green at 5 minutes or less, amber above 5 through 15 minutes, and red above 15 minutes.
+- Pick and delivery target counts and durations are configured in Admin and displayed beside actual window results.
 
 ## Print output
 
